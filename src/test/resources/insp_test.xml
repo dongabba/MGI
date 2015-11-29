@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="roleContractorTests_test">
+		<parameter name="username" value="cao_mgi_insp" />
+		<parameter name="password" value="cao_mgi_insp" />
+		<parameter name="role" value="Бехтер С. В." />
+		<test name = "UserLoginAsContractor">
+		<classes>
+			<class name="ru.fors.tests.LoginTests"/>
+		</classes>
+		</test>
+</suite>
