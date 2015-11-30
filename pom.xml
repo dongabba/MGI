@@ -11,14 +11,14 @@
         <aspectj.version>1.8.5</aspectj.version>
 		<selenium.version>2.48.2</selenium.version>
 	  	<url>http://mgi.fors.ru/</url>
-	  	<wait>10</wait>>
+	  	<wait.seconds>10</wait.seconds>
    </properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.8.8</version>
+			<version>6.9.4</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -41,6 +41,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-java-annotations</artifactId>
+			<version>1.4.16</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources> 
@@ -117,8 +123,8 @@
 		<profile>
 			<id>test_firefox</id>
 			<properties>
-				<site.url>${url}}</site.url>
-				<wait>${wait}}</wait>
+				<site.url>${url}</site.url>
+				<wait>${wait.seconds}</wait>
 				<browser.name>firefox</browser.name>
 				<suites>test_env</suites>
 			</properties>
@@ -129,8 +135,8 @@
 		<profile>
 			<id>test_chrome</id>
 			<properties>
-				<site.url>${url}}</site.url>
-				<wait>${wait}}</wait>
+				<site.url>${url}</site.url>
+				<wait>${wait.seconds}</wait>
 				<browser.name>chrome</browser.name>
 				<suites>test_env</suites>
 			</properties>
@@ -138,8 +144,8 @@
 		<profile>
 			<id>prod_firefox</id>
 			<properties>
-				<site.url>${url}}</site.url>
-				<wait>${wait}}</wait>
+				<site.url>${url}</site.url>
+				<wait>${wait.seconds}</wait>
 				<browser.name>firefox</browser.name>
 				<suites>prod_env</suites>
 			</properties>
@@ -147,8 +153,8 @@
 		<profile>
 			<id>prod_chrome</id>
 			<properties>
-				<site.url>${url}}</site.url>
-				<wait>${wait}}</wait>
+				<site.url>${url}</site.url>
+				<wait>${wait.seconds}</wait>
 				<browser.name>chrome</browser.name>
 				<suites>prod_env</suites>
 			</properties>
