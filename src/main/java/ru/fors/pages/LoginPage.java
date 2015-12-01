@@ -2,6 +2,7 @@ package ru.fors.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class LoginPage extends Page {
@@ -24,7 +25,13 @@ public class LoginPage extends Page {
 		type(usernameField, username);
 		type(passwordField, password);
 		click(loginButton);
-		return new MainPage(driver); 
+		return new MainPage(driver);
 		
+	}
+
+	@Step("Ждем, пока откроется страница")
+	public LoginPage waitForPageLoaded(){
+		wait.until(ExpectedConditions.titleIs("МЖИ — Вход"));
+		return this;
 	}
 }

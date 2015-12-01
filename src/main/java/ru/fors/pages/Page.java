@@ -13,14 +13,20 @@ import ru.fors.utils.PropertyLoader;
 public class Page {
 
 	protected WebDriver driver;
+	protected WebDriverWait wait;
 
 	public Page(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, Long.parseLong(PropertyLoader.loadProperty("wait")));
 	}
 	
 	public void type(By element, String string){
 		driver.findElement(element).clear();
 		driver.findElement(element).sendKeys(string);
+	}
+
+	public String getPageTitle(){
+		return driver.getTitle();
 	}
 	
 	public void click(By element){

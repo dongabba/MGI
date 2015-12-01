@@ -12,7 +12,7 @@ import ru.fors.utils.WebDriverFactory;
 
 public class TestBase {
 	
-	protected WebDriver driver;
+	protected static WebDriver driver;
 	public String baseUrl;
 	
 	@BeforeTest
@@ -29,7 +29,7 @@ public class TestBase {
 	
 	
 	@AfterTest
-	public void tearDown() {
+	public static void tearDown() {
 		driver.quit();
 	}
 	
@@ -37,7 +37,7 @@ public class TestBase {
 		driver.close();
 	}
 	
-	public WebDriver getWebDriver(){
+	public static WebDriver getWebDriver(){
 		return driver;
 	}
 	

@@ -7,6 +7,8 @@
   <packaging>jar</packaging>
   
   <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <allure.version>1.4.16</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
 		<selenium.version>2.48.2</selenium.version>
@@ -18,7 +20,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.9.4</version>
+			<version>6.8.8</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -45,7 +47,6 @@
 			<groupId>ru.yandex.qatools.allure</groupId>
 			<artifactId>allure-java-annotations</artifactId>
 			<version>1.4.16</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -126,7 +127,7 @@
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
 				<browser.name>firefox</browser.name>
-				<suites>test_env</suites>
+				<suites>insp_test</suites>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -138,7 +139,7 @@
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
 				<browser.name>chrome</browser.name>
-				<suites>test_env</suites>
+				<suites>insp_test</suites>
 			</properties>
 		</profile>
 		<profile>
@@ -147,7 +148,7 @@
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
 				<browser.name>firefox</browser.name>
-				<suites>prod_env</suites>
+				<suites>insp_test</suites>
 			</properties>
 		</profile>
 		<profile>
@@ -156,7 +157,7 @@
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
 				<browser.name>chrome</browser.name>
-				<suites>prod_env</suites>
+				<suites>insp_test</suites>
 			</properties>
 		</profile>
 	</profiles>
