@@ -1,5 +1,8 @@
 package ru.fors.tests;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -14,6 +17,9 @@ public class TestBase {
 	
 	protected static WebDriver driver;
 	public String baseUrl;
+
+	DateFormat dateFormat = new SimpleDateFormat("dd.MM.YYYY");
+	Date date = new Date();
 	
 	@BeforeTest
 	public void init(){

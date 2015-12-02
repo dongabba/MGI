@@ -129,9 +129,6 @@
 				<browser.name>firefox</browser.name>
 				<suites>insp_test</suites>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<profile>
 			<id>test_chrome</id>
@@ -141,6 +138,9 @@
 				<browser.name>chrome</browser.name>
 				<suites>insp_test</suites>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 		<profile>
 			<id>prod_firefox</id>

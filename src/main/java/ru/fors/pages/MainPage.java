@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.qatools.allure.annotations.Step;
 
-public class MainPage extends Page {
+public class MainPage extends MainMenu {
 
 	public MainPage(WebDriver driver) {
 		super(driver);
@@ -31,4 +31,5 @@ public class MainPage extends Page {
 		click(logoutLink);
 		return new LoginPage(driver);
 	}
+
 }

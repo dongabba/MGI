@@ -2,8 +2,13 @@ package ru.fors.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class WebDriverFactory {
 	
@@ -13,11 +18,25 @@ public class WebDriverFactory {
 	
 	public static WebDriver getInstance(Browser browser) {
 
-		WebDriver webDriver = null;
+        DesiredCapabilities capability = new DesiredCapabilities();
+        capability.setJavascriptEnabled(true);
+        WebDriver webDriver = null;
+        if (webDriver != null) {
+            return webDriver;
+        }
 		String browserName = browser.getName();
 		
 		if (CHROME.equals(browserName)) {
-			webDriver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			Map<String, Object> prefs = new HashMap<String, Object>();
+			prefs.put("download.default_directory", "target\\");
+			prefs.put("download.prompt_for_dowload", false);
+			options.addArguments("start-maximized");
+			options.setExperimentalOption("prefs", prefs);
+			capability = DesiredCapabilities.chrome();
+			capability.setCapability(ChromeOptions.CAPABILITY, options);
+			webDriver = new ChromeDriver(capability);
+
 
 		} else if (FIREFOX.equals(browserName)) {
 			webDriver = new FirefoxDriver();
