@@ -3,10 +3,7 @@ package ru.fors.pages;
 import java.util.concurrent.TimeUnit;
 
 import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -92,5 +89,24 @@ public class Page {
 			}
 
 		});
+	}
+	public void clickOnLink(By element, By element1, By element2){
+		int count = 0;
+		while (count < 5){
+			try{
+				click(element);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(element1));
+				click(element1);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(element2));
+				click(element2);
+			} catch (StaleElementReferenceException e){
+				System.out.println("Trying to recover from a stale element");
+				count = count+1;
+			}catch (NoSuchElementException ex){
+				System.out.println("Trying to recover from a no such element");
+				count = count+1;
+			}
+			count=count+5;
+		}
 	}
 }

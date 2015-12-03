@@ -41,6 +41,10 @@ public class TestBase {
 		driver.quit();
 	}
 
+	public static void closeDriver(){
+		driver.close();
+	}
+
 	
 	public static WebDriver getWebDriver(){
 		return driver;
