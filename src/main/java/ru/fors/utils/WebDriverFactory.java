@@ -29,7 +29,7 @@ public class WebDriverFactory {
 		if (CHROME.equals(browserName)) {
 			ChromeOptions options = new ChromeOptions();
 			Map<String, Object> prefs = new HashMap<String, Object>();
-			prefs.put("download.default_directory", "target\\");
+			prefs.put("download.default_directory", "C:\\mgi_reports\\");
 			prefs.put("download.prompt_for_dowload", false);
 			options.addArguments("start-maximized");
 			options.setExperimentalOption("prefs", prefs);

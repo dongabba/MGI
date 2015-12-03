@@ -14,8 +14,7 @@ public class MainPage extends MainMenu {
 	By userInformationContainer = By.cssSelector(".user-information");
 	By userRole = By.cssSelector(".user-information span");
 	By logoutLink = By.linkText("Выход");
-	
-	@Step("Ждем когда страница загрузится")
+
 	public MainPage waitForPageLoaded(){
 		wait.until(ExpectedConditions.visibilityOfElementLocated(userInformationContainer));
 		return this;

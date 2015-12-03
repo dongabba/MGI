@@ -29,7 +29,6 @@ public class LoginPage extends Page {
 		
 	}
 
-	@Step("Ждем, пока откроется страница")
 	public LoginPage waitForPageLoaded(){
 		wait.until(ExpectedConditions.titleIs("МЖИ — Вход"));
 		return this;

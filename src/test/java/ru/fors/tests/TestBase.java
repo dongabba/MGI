@@ -5,9 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.aspectj.lang.annotation.After;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import ru.fors.utils.Browser;
 import ru.fors.utils.PropertyLoader;
@@ -23,6 +23,7 @@ public class TestBase {
 	
 	@BeforeTest
 	public void init(){
+		System.out.println("This is before test method");
 		baseUrl = PropertyLoader.loadProperty("site.url");
 		Browser browser = new Browser();
 		browser.setName(PropertyLoader.loadProperty("browser.name"));
@@ -36,12 +37,10 @@ public class TestBase {
 	
 	@AfterTest
 	public static void tearDown() {
+		System.out.println("This is after test method");
 		driver.quit();
 	}
-	
-	public void close(){
-		driver.close();
-	}
+
 	
 	public static WebDriver getWebDriver(){
 		return driver;

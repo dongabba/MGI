@@ -2,9 +2,12 @@ package ru.fors.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -80,6 +83,14 @@ public class Page {
 		}
 		return null;
 	}
-	
 
+	public void waitAllAjaxRequest(){
+		new WebDriverWait(driver, 30).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				return (Boolean) js.executeScript("return window.jQuery != undefined && jQuery.active === 0");
+			}
+
+		});
+	}
 }

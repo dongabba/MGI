@@ -12,7 +12,7 @@
         <allure.version>1.4.16</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
 		<selenium.version>2.48.2</selenium.version>
-	  	<url>http://mgi.fors.ru/</url>
+	  	<url>http://mgi.fors.ru/login?1</url>
 	  	<wait.seconds>10</wait.seconds>
    </properties>
 
