@@ -21,6 +21,7 @@ public class TestBase {
 	DateFormat dateFormat = new SimpleDateFormat("dd.MM.YYYY");
 	Date date = new Date();
 	
+
 	@BeforeTest
 	public void init(){
 		System.out.println("This is before test method");

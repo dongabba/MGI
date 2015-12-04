@@ -12,7 +12,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
 /**
- * Created by azhaleyko on 02.12.2015.
+ * Created by Alexander Zhaleyko on 02.12.2015.
  */
 public class ReportsPage extends MainMenu {
 
@@ -36,7 +36,6 @@ public class ReportsPage extends MainMenu {
     By registryRequirementsReportTitle = By.xpath("//h3[text()='Реестр предписаний']");
     By orgNameSelectLocator = By.cssSelector("div[class*=\"select2-container\"]");
     By orgNameInputFieldLocator = By.cssSelector("input[class*='select2-focused']");
-    int sleep = 15000;
 
     public ReportsPage waitForReportLoaded(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
@@ -60,8 +59,8 @@ public class ReportsPage extends MainMenu {
         userSetDataFrom(date);
         userSetDataTo(date);
         userBuildReport();
-        waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //waitAllAjaxRequest();
+        //Thread.sleep(sleep);
     }
 
     public void userBuildDataOfInspectionActReport(String date) throws InterruptedException {
@@ -70,7 +69,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildDataOfPrescriptionReport(String date) throws InterruptedException {
@@ -79,7 +78,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildListFormedDocsByAddressReport(String date) throws InterruptedException {
@@ -88,7 +87,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(30000);
+        //Thread.sleep(30000);
     }
 
     public void userBuildListCheckActWithoutPrescriptionReport(String date) throws InterruptedException {
@@ -97,7 +96,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildInspectionActsReport(String date) throws InterruptedException {
@@ -106,7 +105,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildCheckInspectionActsReport(String date) throws InterruptedException {
@@ -115,7 +114,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildStatisticDataReport(String date) throws InterruptedException {
@@ -124,14 +123,14 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildInstructionsFizReport() throws InterruptedException {
         waitForReportLoaded(instructionsFizReportTitle);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildSubjectRequirementsReport(String date) throws InterruptedException {
@@ -141,7 +140,7 @@ public class ReportsPage extends MainMenu {
         userSetOrganization("Государственная жилищная инспекция города Москвы");
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildInspectionReferenceReport(String date) throws InterruptedException {
@@ -151,7 +150,7 @@ public class ReportsPage extends MainMenu {
         userSetOrganization("Государственная жилищная инспекция города Москвы");
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(sleep);
+        //Thread.sleep(sleep);
     }
 
     public void userBuildRegistryRequirementsReport(String date) throws InterruptedException {
@@ -160,7 +159,7 @@ public class ReportsPage extends MainMenu {
         userSetDataTo(date);
         userBuildReport();
         //waitAllAjaxRequest();
-        Thread.sleep(40000);
+        //Thread.sleep(40000);
     }
 
     private void userSetOrganization(String orgName) {
@@ -173,83 +172,86 @@ public class ReportsPage extends MainMenu {
 
 
 
-    public boolean isReportFormed(String reportName) {
+    public boolean isReportFormed(String reportName) throws InterruptedException {
         File file = new File("C:\\mgi_reports\\");
-        File [] files = file.listFiles();
         int count=0;
-        for (int i=0; i<files.length; i++){
-            File f1 = files[i];
-            if(f1.getName().startsWith(reportName)){
-                f1.delete();
-                count++;
-                break;
+        for (int time = 0; time<118; time++) {
+            File [] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                File f1 = files[i];
+                if (f1.getName().startsWith(reportName)) {
+                    f1.delete();
+                    count++;
+                    break;
+                }
             }
+            Thread.sleep(500);
+            if (count>0)break;
         }
         if (count>0){
-            System.out.println("true " + count);
             return true;
 
         }else{
-            System.out.println("false " + count);
             return false;
         }
     }
+
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isDataOfDocEnteredInMgiReportFormed(){
+    public boolean isDataOfDocEnteredInMgiReportFormed()throws InterruptedException {
         return isReportFormed("dataOfDocEnteredInMg");
     }
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isDataOfInspectionActReportFormed(){
+    public boolean isDataOfInspectionActReportFormed()throws InterruptedException {
         return isReportFormed("dataOfInspectionAct");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isDataOfPrescriptionReportFormed(){
+    public boolean isDataOfPrescriptionReportFormed()throws InterruptedException {
         return isReportFormed("dataOfPrescription");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isListFormedDocsByAddressReportFormed(){
+    public boolean isListFormedDocsByAddressReportFormed()throws InterruptedException {
         return isReportFormed("listFormedDocsByAddress");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isListCheckActWithoutPrescriptionReportFormed(){
+    public boolean isListCheckActWithoutPrescriptionReportFormed()throws InterruptedException {
         return isReportFormed("listCheckActWithoutPrescription");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isInspectionActsReportFormed(){
+    public boolean isInspectionActsReportFormed()throws InterruptedException {
         return isReportFormed("inspectionActs_9");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isCheckInspectionActsReportFormed(){
+    public boolean isCheckInspectionActsReportFormed()throws InterruptedException {
         return isReportFormed("inspectionActs_10");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isStatisticDataReportFormed(){
+    public boolean isStatisticDataReportFormed()throws InterruptedException {
         return isReportFormed("statisticData");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isInstructionsFizReportFormed(){
+    public boolean isInstructionsFizReportFormed()throws InterruptedException {
         return isReportFormed("instructions_13");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isSubjectRequirementsReportFormed(){
+    public boolean isSubjectRequirementsReportFormed()throws InterruptedException {
         return isReportFormed("subjectRequirements");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isInspectionReferenceReportFormed(){
+    public boolean isInspectionReferenceReportFormed()throws InterruptedException {
         return isReportFormed("inspectionReference");
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isRegistryRequirementsReportFormed(){
+    public boolean isRegistryRequirementsReportFormed()throws InterruptedException {
         return isReportFormed("registryRequirements");
     }
 

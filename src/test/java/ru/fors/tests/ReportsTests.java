@@ -1,5 +1,6 @@
 package ru.fors.tests;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -8,6 +9,8 @@ import ru.fors.pages.MainPage;
 import ru.fors.pages.ReportsPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
+
+import java.io.File;
 
 import static org.junit.Assert.assertTrue;
 
@@ -22,6 +25,16 @@ public class ReportsTests extends TestBase{
         mainPage.waitForPageLoaded();
     }
 
+    @BeforeClass
+    public void cleanWorkingDirectory(){
+        System.out.println("This is before class method");
+        File file = new File("C:\\mgi_reports\\");
+        File [] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                File f1 = files[i];
+                    f1.delete();
+            }
+    }
     @BeforeMethod
     @Parameters({"username", "password"})
     public void testStatus(String username, String password){
