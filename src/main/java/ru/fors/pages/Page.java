@@ -40,73 +40,21 @@ public class Page {
 	public String getUrl(){
 		return driver.getCurrentUrl();
 	}
-	
-	public static Boolean isElementPresent(WebDriver driver, By element) {
-		try {
-			driver.findElement(element);
-			return true;
-		} catch (NoSuchElementException e) {
-			return false;
-		}
 
-	}
-	
-	public static Object waitForElementPresent(WebDriver driver, By locator, int timeout) {
-		try {
-			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-
-			new WebDriverWait(driver, timeout) {
-			}.until(ExpectedConditions.presenceOfElementLocated(locator));
-
-			driver.manage().timeouts().implicitlyWait(Long.parseLong(PropertyLoader.loadProperty("imp.wait")), TimeUnit.SECONDS);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public static Object waitForAjaxIndicatorOff(WebDriver driver, int timeout) {
-		try {
-			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-
-			new WebDriverWait(driver, timeout) {
-			}.until(ExpectedConditions.invisibilityOfElementLocated(By.id("ajax-indicator")));
-
-			driver.manage().timeouts().implicitlyWait(Long.parseLong(PropertyLoader.loadProperty("imp.wait")), TimeUnit.SECONDS);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public void waitAllAjaxRequest(){
-		new WebDriverWait(driver, 30).until(new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver driver) {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				return (Boolean) js.executeScript("return window.jQuery != undefined && jQuery.active === 0");
-			}
-
-		});
-	}
 	public void clickOnLink(By element, By element1, By element2){
 		int count = 0;
-		while (count < 5){
-			try{
+		while (count < 5) {
+			try {
 				click(element);
 				wait.until(ExpectedConditions.elementToBeClickable(element1));
 				click(element1);
 				wait.until(ExpectedConditions.elementToBeClickable(element2));
 				click(element2);
-			} catch (StaleElementReferenceException e){
-				System.out.println("Trying to recover from a stale element");
-				count = count+1;
-			}catch (NoSuchElementException ex){
-				System.out.println("Trying to recover from a no such element");
-				count = count+1;
+				break;
+			} catch (Exception e) {
+				System.out.println("Count: " + count + " click exception" );
+				count = count + 1;
 			}
-			count=count+5;
 		}
 	}
 }

@@ -24,12 +24,11 @@ public class TestBase {
 
 	@BeforeTest
 	public void init(){
-		System.out.println("This is before test method");
+		System.out.println("This is before test INIT method");
 		baseUrl = PropertyLoader.loadProperty("site.url");
 		Browser browser = new Browser();
 		browser.setName(PropertyLoader.loadProperty("browser.name"));
 		driver = WebDriverFactory.getInstance(browser);
-		//driver.manage().timeouts().implicitlyWait(Long.parseLong(PropertyLoader.loadProperty("imp.wait")), TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 		
@@ -38,18 +37,18 @@ public class TestBase {
 	
 	@AfterTest
 	public static void tearDown() {
-		System.out.println("This is after test method");
-		driver.quit();
-	}
-
-	public static void closeDriver(){
-		driver.close();
+		if (driver != null) {
+			System.out.println("This is after test method");
+			driver.quit();
+			driver = null;
+		}
 	}
 
 	
 	public static WebDriver getWebDriver(){
 		return driver;
 	}
+
 	
 	
 	

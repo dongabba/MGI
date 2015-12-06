@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.File;
@@ -36,6 +37,15 @@ public class ReportsPage extends MainMenu {
     By registryRequirementsReportTitle = By.xpath("//h3[text()='Реестр предписаний']");
     By orgNameSelectLocator = By.cssSelector("div[class*=\"select2-container\"]");
     By orgNameInputFieldLocator = By.cssSelector("input[class*='select2-focused']");
+    By appliedAdministrativeMeasuresReportTitile = By.xpath("//h3[text()='Принятые меры административного воздействия за нарушения требований по раскрытию информации УО']");
+    By implementationOfControlMeasuresReportTitle = By.xpath("//h3[text()='Сводная информация о проведенных контрольных мероприятиях']");
+    By revealedViolationPageReportTitle = By.xpath("//h3[text()='Отчет по выявленным нарушениям']");
+    By unauthorizedRedevelopmentReportTitle = By.xpath("//h3[text()='Отчет по несанкционированным перепланировкам']");
+    By administrativeViolationsReportTitle = By.xpath("//h3[text()='Данные по возвратам административных дел']");
+    By financialSanctionsReportTitle = By.xpath("//h3[text()='Отчет по финансовым санкциям']");
+    By exposedPrescriptionsReportTitle = By.xpath("//h3[text()='Отчет по выставленным предписаниям']");
+    By specObjectsRptByChecksReportTitle = By.xpath("//h3[text()='Отчет по проверкам']");
+    By specObjectsRptByInspectionActsReportTitle = By.xpath("//h3[text()='Отчет по актам осмотра']");
 
     public ReportsPage waitForReportLoaded(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
@@ -162,9 +172,66 @@ public class ReportsPage extends MainMenu {
         //Thread.sleep(40000);
     }
 
+    public void userBuildAppliedAdministrativeMeasuresReport() throws InterruptedException {
+        waitForReportLoaded(appliedAdministrativeMeasuresReportTitile);
+        userBuildReport();
+    }
+
+    public void userBuildImplementationOfControlMeasuresReport() throws InterruptedException {
+        waitForReportLoaded(implementationOfControlMeasuresReportTitle);
+        userBuildReport();
+    }
+
+    public void userBuildRevealedViolationPageReport(String date) throws InterruptedException {
+        waitForReportLoaded(revealedViolationPageReportTitle);
+        userSetDataFrom(date);
+        userSetDataTo(date);
+        userBuildReport();
+    }
+
+    public void userBuildUnauthorizedRedevelopmentReport() throws InterruptedException {
+        waitForReportLoaded(unauthorizedRedevelopmentReportTitle);
+        userBuildReport();
+    }
+
+    public void userBuildExposedPrescriptionsReport() throws InterruptedException {
+        waitForReportLoaded(exposedPrescriptionsReportTitle);
+        userBuildReport();
+    }
+
+    public void userBuildSpecObjectsRptByChecksReport() throws InterruptedException {
+        waitForReportLoaded(specObjectsRptByChecksReportTitle);
+        userBuildReport();
+    }
+
+    public void userBuildSpecObjectsRptByInspectionActsReport() throws InterruptedException {
+        waitForReportLoaded(specObjectsRptByInspectionActsReportTitle);
+        userBuildReport();
+    }
+
+    public void userBuildAdministrativeViolationsReport() throws InterruptedException {
+        waitForReportLoaded(administrativeViolationsReportTitle);
+        userBuildReport();
+    }
+
+    public void userBuildFinancialSanctionsReport() throws InterruptedException {
+        waitForReportLoaded(financialSanctionsReportTitle);
+        userBuildReport();
+    }
+
     private void userSetOrganization(String orgName) {
-        click(orgNameSelectLocator);
-        wait.until(presenceOfElementLocated(By.cssSelector("input[class*='select2-focused']")));
+        int count = 0;
+        while(count < 5 ) {
+            try {
+                click(orgNameSelectLocator);
+                WebDriverWait wait1 = new WebDriverWait(driver, 5);
+                wait1.until(presenceOfElementLocated(By.cssSelector("input[class*='select2-focused']")));
+                break;
+            } catch (Exception e) {
+                System.out.println("Count: " + count + " SetOrganization exception" );
+                count = count + 1;
+            }
+        }
         type(orgNameInputFieldLocator, orgName);
         wait.until(textToBePresentInElementLocated(By.className("select2-match"), orgName));
         driver.findElement(orgNameInputFieldLocator).sendKeys(Keys.ENTER);
@@ -175,7 +242,7 @@ public class ReportsPage extends MainMenu {
     public boolean isReportFormed(String reportName) throws InterruptedException {
         File file = new File("C:\\mgi_reports\\");
         int count=0;
-        for (int time = 0; time<236; time++) {
+        for (int time = 0; time<118; time++) {
             File [] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
                 File f1 = files[i];
@@ -253,6 +320,51 @@ public class ReportsPage extends MainMenu {
     @Step("Проверяем наличие файла с отчетом")
     public boolean isRegistryRequirementsReportFormed()throws InterruptedException {
         return isReportFormed("registryRequirements");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isAppliedAdministrativeMeasuresReportFormed()throws InterruptedException {
+        return isReportFormed("appliedAdministrativeMeasures");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isImplementationOfControlMeasuresReportFormed()throws InterruptedException {
+        return isReportFormed("implementationOfControlMeasures");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isRevealedViolationPageReportFormed()throws InterruptedException {
+        return isReportFormed("revealedViolationPage");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isUnauthorizedRedevelopmentReportFormed()throws InterruptedException {
+        return isReportFormed("unauthorizedRedevelopmentReport");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isExposedPrescriptionsReportFormed()throws InterruptedException {
+        return isReportFormed("exposedPrescriptions");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isSpecObjectsRptByChecksReportFormed()throws InterruptedException {
+        return isReportFormed("specObjectsRptByChecks");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isSpecObjectsRptByInspectionActsReportFormed()throws InterruptedException {
+        return isReportFormed("specObjectsRptByInspectionActs");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isAdministrativeViolationsReportFormed()throws InterruptedException {
+        return isReportFormed("administrativeViolations");
+    }
+
+    @Step("Проверяем наличие файла с отчетом")
+    public boolean isFinancialSanctionsReportFormed()throws InterruptedException {
+        return isReportFormed("financialSanctions");
     }
 
 }

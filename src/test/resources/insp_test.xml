@@ -9,9 +9,13 @@
 				<class name="ru.fors.tests.LoginTests"/>
 			</classes>
 	</test>
-	<test name = "ReportsTest">
+	<test name = "ReportsTestInspectorRole">
 		<classes>
 			<class name="ru.fors.tests.ReportsTests"/>
+			<methods>
+				<exclude name="administrativeViolationsReportTest"/>
+				<exclude name="financialSanctionsReportTest"/>
+			</methods>
 		</classes>
 	</test>
 </suite>

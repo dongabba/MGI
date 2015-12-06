@@ -30,6 +30,21 @@ public class MainMenu extends Page{
     By inspectionReferenceReport = By.linkText("Справка по проведению инспекционных проверок жилищного фонда за период (на субъект)");
     By registryRequirementsReport = By.linkText("Реестр предписаний");
 
+    //=======Меню административные========
+    By adminReports = By.linkText("Административные");
+    By appliedAdministrativeMeasuresReport = By.linkText("Принятые меры административного воздействия за нарушения требований по раскрытию информации УО");
+    By implementationOfControlMeasuresReport = By.linkText("Сводная информация о проведенных контрольных мероприятиях");
+    By revealedViolationPageReport = By.linkText("Отчет по выявленным нарушениям");
+    By unauthorizedRedevelopmentReport = By.linkText("Отчет по несанкционированным перепланировкам");
+    By administrativeViolationsReport = By.linkText("Данные по возвратам административных дел");
+    By financialSanctionsReport = By.linkText("Отчет по финансовым санкциям");
+
+    //=======По особым объектам========
+    By specialObjectsReports = By.linkText("По особым объектам");
+    By exposedPrescriptionsReport = By.linkText("Отчет по выставленным предписаниям");
+    By specObjectsRptByChecksReport = By.linkText("Отчет по проверкам");
+    By specObjectsRptByInspectionActsReport = By.linkText("Отчет по актам осмотра");
+
     public void userGoToInspReports(){
         click(reportsLink);
         wait.until(ExpectedConditions.visibilityOfElementLocated(inspReportsPage));
@@ -110,6 +125,68 @@ public class MainMenu extends Page{
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToRegistryRequirementsReport() {
         clickOnLink(reportsLink, inspReportsPage, registryRequirementsReport);
+        return new ReportsPage(driver);
+    }
+    //Принятые меры административного воздействия за нарушения требований по раскрытию информации УО
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToAppliedAdministrativeMeasuresReport() {
+        clickOnLink(reportsLink, adminReports, appliedAdministrativeMeasuresReport);
+        return new ReportsPage(driver);
+    }
+
+    //Сводная информация о проведенных контрольных мероприятиях
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToImplementationOfControlMeasuresReport() {
+        clickOnLink(reportsLink, adminReports, implementationOfControlMeasuresReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по выявленным нарушениям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToRevealedViolationPageReport() {
+        clickOnLink(reportsLink, adminReports, revealedViolationPageReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по несанкционированным перепланировкам
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToAdministrativeViolationsReport() {
+        clickOnLink(reportsLink, adminReports, administrativeViolationsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Данные по возвратам административных дел
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToFinancialSanctionsReport() {
+        clickOnLink(reportsLink, adminReports, financialSanctionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по финансовым санкциям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToUnauthorizedRedevelopmentReport() {
+        clickOnLink(reportsLink, adminReports, unauthorizedRedevelopmentReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по выставленным предписаниям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToExposedPrescriptionsReport() {
+        clickOnLink(reportsLink, specialObjectsReports, exposedPrescriptionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по проверкам
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToSpecObjectsRptByChecksReport() {
+        clickOnLink(reportsLink, specialObjectsReports, specObjectsRptByChecksReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по актам осмотра
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToSpecObjectsRptByInspectionActsReport() {
+        clickOnLink(reportsLink, specialObjectsReports, specObjectsRptByInspectionActsReport);
         return new ReportsPage(driver);
     }
 }
