@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -39,7 +41,9 @@ public class WebDriverFactory {
 
 
 		} else if (FIREFOX.equals(browserName)) {
-			webDriver = new FirefoxDriver();
+			ProfilesIni profiles = new ProfilesIni();
+			FirefoxProfile mgiProfile = profiles.getProfile("mgi");
+			webDriver = new FirefoxDriver(mgiProfile);
 
 		} else if (INTERNET_EXPLORER.equals(browserName)) {
 			webDriver = new InternetExplorerDriver();

@@ -95,9 +95,9 @@ public class Page {
 		while (count < 5){
 			try{
 				click(element);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(element1));
+				wait.until(ExpectedConditions.elementToBeClickable(element1));
 				click(element1);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(element2));
+				wait.until(ExpectedConditions.elementToBeClickable(element2));
 				click(element2);
 			} catch (StaleElementReferenceException e){
 				System.out.println("Trying to recover from a stale element");

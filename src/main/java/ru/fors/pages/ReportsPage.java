@@ -175,7 +175,7 @@ public class ReportsPage extends MainMenu {
     public boolean isReportFormed(String reportName) throws InterruptedException {
         File file = new File("C:\\mgi_reports\\");
         int count=0;
-        for (int time = 0; time<118; time++) {
+        for (int time = 0; time<236; time++) {
             File [] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
                 File f1 = files[i];
