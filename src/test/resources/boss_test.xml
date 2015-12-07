@@ -14,4 +14,9 @@
 			<class name="ru.fors.tests.ReportsTests"/>
 		</classes>
 	</test>
+	<test name = "JournalsTestBossRole">
+		<classes>
+			<class name="ru.fors.tests.JournalsTests"/>
+		</classes>
+	</test>
 </suite>

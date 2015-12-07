@@ -19,11 +19,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class ReportsTests extends TestBase{
 
-    public void userLogin(String username, String password){
-        LoginPage loginPage = new LoginPage(driver);
-        MainPage mainPage = loginPage.userLogin(username, password);
-        mainPage.waitForPageLoaded();
-    }
+
 
     @BeforeClass
     public void cleanWorkingDirectory(){
@@ -35,17 +31,7 @@ public class ReportsTests extends TestBase{
                     f1.delete();
             }
     }
-    @BeforeMethod
-    @Parameters({"username", "password"})
-    public void testStatus(String username, String password){
-        System.out.println("This is before method in test");
-        if (driver == null){
-            init();
-            userLogin(username, password);
-        } if (driver.getTitle().equals("МЖИ — Вход")){
-            userLogin(username, password);
-        }
-    }
+
 
     @Features("Отчеты")
     @Stories("Отчет \"Данные по документам, введенным в ЕИС МЖИ, за период\"")

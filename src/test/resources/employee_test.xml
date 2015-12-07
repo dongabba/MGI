@@ -21,4 +21,9 @@
 				</methods>
 		</classes>
 	</test>
+	<test name = "JournalsTestEmployeeRole">
+		<classes>
+			<class name="ru.fors.tests.JournalsTests"/>
+		</classes>
+	</test>
 </suite>

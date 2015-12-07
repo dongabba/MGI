@@ -45,6 +45,19 @@ public class MainMenu extends Page{
     By specObjectsRptByChecksReport = By.linkText("Отчет по проверкам");
     By specObjectsRptByInspectionActsReport = By.linkText("Отчет по актам осмотра");
 
+    //=======Меню Журналы и реестры========
+    By journalsAnrRegistryLink = By.linkText("Журналы и реестры");
+
+    //=======Инспекционные журналы=======
+    By inspJourlalsLink = By.linkText("Инспекционные журналы");
+    By instructionsJournal = By.linkText("Журнал распоряжений");
+    By actsJournal = By.linkText("Журнал актов проверок");
+    By prescriptionsJournal = By.linkText("Журнал предписаний");
+    By viewActsJournal = By.linkText("Журнал актов осмотра");
+    By criminalJournal = By.linkText("Журнал определений об отказе в возбуждении дела");
+    By eventsJournal = By.linkText("Журнал мероприятий");
+
+
     public void userGoToInspReports(){
         click(reportsLink);
         wait.until(ExpectedConditions.visibilityOfElementLocated(inspReportsPage));
@@ -188,5 +201,47 @@ public class MainMenu extends Page{
     public ReportsPage userGoToSpecObjectsRptByInspectionActsReport() {
         clickOnLink(reportsLink, specialObjectsReports, specObjectsRptByInspectionActsReport);
         return new ReportsPage(driver);
+    }
+
+    //Журнал распоряжений
+    @Step("Переходим на страницу \"Журнал распоряжений\"")
+    public JournalsPage userGoToInstructionsJournal(){
+        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, instructionsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал мероприятий
+    @Step("Переходим на страницу \"Журнал мероприятий\"")
+    public JournalsPage userGoToEventsJournal(){
+        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, eventsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал актов проверок
+    @Step("Переходим на страницу \"Журнал актов проверок\"")
+    public JournalsPage userGoToActsJournal(){
+        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, actsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал предписаний
+    @Step("Переходим на страницу \"Журнал предписаний\"")
+    public JournalsPage userGoToPrescriptionsJournal(){
+        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, prescriptionsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал актов осмотра
+    @Step("Переходим на страницу \"Журнал актов осмотра\"")
+    public JournalsPage userGoToViewActsJournal(){
+        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, viewActsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал определений об отказе в возбуждении дела
+    @Step("Переходим на страницу \"Журнал определений об отказе в возбуждении дела\"")
+    public JournalsPage userGoToCriminalJournal(){
+        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, criminalJournal);
+        return new JournalsPage(driver);
     }
 }
