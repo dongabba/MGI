@@ -22,12 +22,12 @@ public class JournalsPage extends MainMenu {
     By findButton = By.xpath("//button[text()='Искать']");
     By tableWithResults = By.xpath("//*[@class='act-panel']/div[2]//table/tbody/tr[1]");
     By tableWithResults2 = By.xpath("//*[@class='act-panel']/div//table/tbody/tr[1]");
-    By protocolsJournalTitle = By.xpath("//h3[text()='Распоряжения']");
+    By protocolsJournalTitle = By.xpath("//h3[text()='Протоколы']");
     By apDealJournalTitle = By.xpath("//h3[text()='Дело об АП']");
     By decreeJournalTitle = By.xpath("//h3[text()='Постановления']");
     By adjunctJournalTitle = By.xpath("//h3[text()='Определения']");
     By claimJournalTitle = By.xpath("//h3[text()='Жалобы']");
-    By representJournalTitle = By.linkText("//h3[text()='Представления об устранении причин и условий, способствовавших совершению административного правонарушения']");
+    By representJournalTitle = By.xpath("//h3[text()='Представления об устранении причин и условий, способствовавших совершению административного правонарушения']");
     By tableWithResultInAdmPractice = By.xpath("//*[@class='table-wrap']//tbody/tr[1]");
 
     public void waitForPageInstructionsJournalLoaded (){
