@@ -32,6 +32,17 @@ public class ReportsTests extends TestBase{
             }
     }
 
+    @BeforeMethod
+    @Parameters({"username", "password"})
+    public void testStatus(String username, String password){
+        System.out.println("This is before method in test");
+        if (driver == null){
+            init();
+            userLogin(username, password);
+        } if (driver.getTitle().equals("МЖИ — Вход")){
+            userLogin(username, password);
+        }
+    }
 
     @Features("Отчеты")
     @Stories("Отчет \"Данные по документам, введенным в ЕИС МЖИ, за период\"")

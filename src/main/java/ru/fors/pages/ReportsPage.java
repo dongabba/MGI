@@ -204,6 +204,7 @@ public class ReportsPage extends MainMenu {
         userBuildReport();
     }
 
+
     public void userBuildSpecObjectsRptByInspectionActsReport() throws InterruptedException {
         waitForReportLoaded(specObjectsRptByInspectionActsReportTitle);
         userBuildReport();

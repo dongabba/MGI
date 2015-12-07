@@ -15,7 +15,7 @@ public class JournalsPage extends MainMenu {
 
     By instructionsJournalTitle = By.xpath("//h3[text()='Распоряжения']");
     By actsJournalTitle = By.xpath("//h3[text()='Акты проверок']");
-    By prescriptionsJournalTitle = By.xpath("h3[text()=']Предписания']");
+    By prescriptionsJournalTitle = By.xpath("h3[text()='Предписания']");
     By viewActsJournalTitle = By.xpath("//h3[text()='Акты осмотров / Акты']");
     By criminalJournalTitle = By.xpath("//h3[text()='Определения об отказе в возбуждении дела']");
     By eventsJournalTitle = By.xpath("//h3[text()='Список мероприятий']");

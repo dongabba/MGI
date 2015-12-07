@@ -1,5 +1,7 @@
 package ru.fors.tests;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ru.fors.pages.JournalsPage;
 import ru.fors.pages.ReportsPage;
@@ -12,6 +14,19 @@ import static org.junit.Assert.assertTrue;
  * Created by Alexander Zhaleyko on 07.12.2015.
  */
 public class JournalsTests extends TestBase {
+
+
+    @BeforeMethod
+    @Parameters({"username", "password"})
+    public void testStatus(String username, String password){
+        System.out.println("This is before method in test");
+        if (driver == null){
+            init();
+            userLogin(username, password);
+        } if (driver.getTitle().equals("МЖИ — Вход")){
+            userLogin(username, password);
+        }
+    }
 
     @Features("Журналы и реестры")
     @Stories("Журнал распоряжений")
