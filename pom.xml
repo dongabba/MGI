@@ -13,7 +13,7 @@
         <aspectj.version>1.8.5</aspectj.version>
 		<selenium.version>2.48.2</selenium.version>
 	  	<url>http://mgi.fors.ru/login?1</url>
-	  	<wait.seconds>20</wait.seconds>
+	  	<wait.seconds>30</wait.seconds>
    </properties>
 
 	<dependencies>
