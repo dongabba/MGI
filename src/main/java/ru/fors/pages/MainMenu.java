@@ -57,12 +57,16 @@ public class MainMenu extends Page{
     By criminalJournal = By.linkText("Журнал определений об отказе в возбуждении дела");
     By eventsJournal = By.linkText("Журнал мероприятий");
 
+    //=======Административная практика=======
+    By adminPracticsLink = By.linkText("Административная практика");
+    By protocolsJournal = By.linkText("Журнал протоколов");
+    By apDealJournal = By.linkText("Журнал дел об АП");
+    By decreeJournal = By.linkText("Журнал постановлений");
+    By adjunctJournal = By.linkText("Журнал определений");
+    By claimJournal = By.linkText("Журнал жалоб");
+    By representJournal = By.linkText("Журнал представлений");
 
-    public void userGoToInspReports(){
-        click(reportsLink);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(inspReportsPage));
-        click(inspReportsPage);
-    }
+
 
     //Данные по документам, введенным в ЕИС МЖИ
     @Step("Переходим на страницу отчета")
@@ -242,6 +246,48 @@ public class MainMenu extends Page{
     @Step("Переходим на страницу \"Журнал определений об отказе в возбуждении дела\"")
     public JournalsPage userGoToCriminalJournal(){
         clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, criminalJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал протоколов
+    @Step("Переходим на страницу \"Журнал протоколов\"")
+    public JournalsPage userGoToProtocolsJournal(){
+        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, protocolsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал дел об АП
+    @Step("Переходим на страницу \"Журнал дел об АП\"")
+    public JournalsPage userGoToApDealJournal(){
+        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, apDealJournal);
+        return new JournalsPage(driver);
+    }
+
+    //"Журнал постановлений
+    @Step("Переходим на страницу \"Журнал постановлений\"")
+    public JournalsPage userGoToDecreeJournal(){
+        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, decreeJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал определений
+    @Step("Переходим на страницу \"Журнал определений\"")
+    public JournalsPage userGoToAdjunctJournal(){
+        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, adjunctJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал жалоб
+    @Step("Переходим на страницу \"Журнал жалоб\"")
+    public JournalsPage userGoToClaimJournal(){
+        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, claimJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал представлений
+    @Step("Переходим на страницу \"Журнал представлений\"")
+    public JournalsPage userGoToRepresentJournal(){
+        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, representJournal);
         return new JournalsPage(driver);
     }
 }

@@ -93,4 +93,65 @@ public class JournalsTests extends TestBase {
         journalsPage.userFormedJournal();
         assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isEventsJournalFormed());
     }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал протоколов")
+    @Test
+    public void protocolsJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToProtocolsJournal();
+        journalsPage.waitForPageProtocolsJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isProtocolsJournalFormed());
+    }
+    @Features("Журналы и реестры")
+    @Stories("Журнал дел об АП")
+    @Test
+    public void apDealJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToApDealJournal();
+        journalsPage.waitForPagelApDealJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isApDealJournalFormed());
+    }
+    @Features("Журналы и реестры")
+    @Stories("Журнал постановлений")
+    @Test
+    public void decreeJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToDecreeJournal();
+        journalsPage.waitForPageDecreeJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isDecreeJournalFormed());
+    }
+    @Features("Журналы и реестры")
+    @Stories("Журнал определений")
+    @Test
+    public void adjunctJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToAdjunctJournal();
+        journalsPage.waitForPageAdjunctJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isAdjunctJournalFormed());
+    }
+    @Features("Журналы и реестры")
+    @Stories("Журнал жалоб")
+    @Test
+    public void claimJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToClaimJournal();
+        journalsPage.waitForPageClaimJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isClaimJournalFormed());
+    }
+    @Features("Журналы и реестры")
+    @Stories("Журнал представлений")
+    @Test
+    public void representJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToRepresentJournal();
+        journalsPage.waitForPageRepresentJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isRepresentJournalFormed());
+    }
 }
