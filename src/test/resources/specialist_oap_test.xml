@@ -20,6 +20,7 @@
 			<methods>
 				<exclude name="referencesJournalTest"/>
 				<exclude name="registryJournalTest"/>
+				<exclude name="eventsJournalTest"/>
 			</methods>
 		</classes>
 	</test>
