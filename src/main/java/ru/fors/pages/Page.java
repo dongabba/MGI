@@ -41,7 +41,7 @@ public class Page {
 		return driver.getCurrentUrl();
 	}
 
-	public void clickOnLink(By element, By element1, By element2){
+	public void clickOn3Link(By element, By element1, By element2){
 		int count = 0;
 		while (count < 5) {
 			try {
@@ -50,6 +50,21 @@ public class Page {
 				click(element1);
 				wait.until(ExpectedConditions.elementToBeClickable(element2));
 				click(element2);
+				break;
+			} catch (Exception e) {
+				System.out.println("Count: " + count + " click exception" );
+				count = count + 1;
+			}
+		}
+	}
+
+	public void clickOn2Link(By element, By element1){
+		int count = 0;
+		while (count < 5) {
+			try {
+				click(element);
+				wait.until(ExpectedConditions.elementToBeClickable(element1));
+				click(element1);
 				break;
 			} catch (Exception e) {
 				System.out.println("Count: " + count + " click exception" );

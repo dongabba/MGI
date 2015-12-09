@@ -2,7 +2,6 @@ package ru.fors.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -66,228 +65,266 @@ public class MainMenu extends Page{
     By claimJournal = By.linkText("Журнал жалоб");
     By representJournal = By.linkText("Журнал представлений");
 
+    //=======Журнал реестров=======
+    By registryJournal = By.linkText("Журнал реестров");
+
+    //=======Журнал обращений=======
+    By referencesJournal = By.linkText("Журнал обращений");
+
+    //=======Проверка соискателя лицензии=======
+    By licenseApplicantLink = By.linkText("Проверка соискателя лицензии");
+    By instructionsOnCheckApplicantsJournal = By.linkText("Журнал распоряжений на проверку соискателей");
+    By actsOfChekingApplicantsJournal = By.linkText("Журнал актов проверки соискателей");
 
 
     //Данные по документам, введенным в ЕИС МЖИ
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToDataOfDocEnteredInMgiReport(){
-        clickOnLink(reportsLink, inspReportsPage, dataOfDocEnteredInMgiReport);
+        clickOn3Link(reportsLink, inspReportsPage, dataOfDocEnteredInMgiReport);
         return new ReportsPage(driver);
     }
     //Данные по актам осмотра за период
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToDataOfInspectionActReport() {
-        clickOnLink(reportsLink, inspReportsPage, dataOfInspectionActReport);
+        clickOn3Link(reportsLink, inspReportsPage, dataOfInspectionActReport);
         return new ReportsPage(driver);
     }
     //Данные по предписаниям за период
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToDataOfPrescriptionReport() {
-        clickOnLink(reportsLink, inspReportsPage, dataOfPrescriptionReport);
+        clickOn3Link(reportsLink, inspReportsPage, dataOfPrescriptionReport);
         return new ReportsPage(driver);
     }
     //Список оформленных документов по адресу
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToListFormedDocsByAddressReport() {
-        clickOnLink(reportsLink, inspReportsPage, listFormedDocsByAddressReport);
+        clickOn3Link(reportsLink, inspReportsPage, listFormedDocsByAddressReport);
         return new ReportsPage(driver);
     }
     //Список актов, не имеющих предписаний
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToListCheckActWithoutPrescriptionReport() {
-        clickOnLink(reportsLink, inspReportsPage, listCheckActWithoutPrescriptionReport);
+        clickOn3Link(reportsLink, inspReportsPage, listCheckActWithoutPrescriptionReport);
         return new ReportsPage(driver);
     }
 
     //Данные по актам осмотра и связанным с ними документам, введенным в ЕИС МЖИ за период
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToInspectionActsReport() {
-        clickOnLink(reportsLink, inspReportsPage, inspectionActsReport);
+        clickOn3Link(reportsLink, inspReportsPage, inspectionActsReport);
         return new ReportsPage(driver);
     }
 
     //Данные по актам поверки и связанным с ними документам, введенным в ЕИС МЖИ за период
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToCheckInspectionActsReport() {
-        clickOnLink(reportsLink, inspReportsPage, checkInspectionActsReport);
+        clickOn3Link(reportsLink, inspReportsPage, checkInspectionActsReport);
         return new ReportsPage(driver);
     }
     //Статистические данные о проведении проверок МЖИ в отношении ЮЛ
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToStatisticDataReport() {
-        clickOnLink(reportsLink, inspReportsPage, statisticDataReport);
+        clickOn3Link(reportsLink, inspReportsPage, statisticDataReport);
         return new ReportsPage(driver);
     }
     //Список распоряжений с истекающим сроком проведения проверки
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToInstructionsFizlReport() {
-        clickOnLink(reportsLink, inspReportsPage, instructionsFizReport);
+        clickOn3Link(reportsLink, inspReportsPage, instructionsFizReport);
         return new ReportsPage(driver);
     }
     //Список документов, выданных на субъект предписания
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToSubjectRequirementsReport() {
-        clickOnLink(reportsLink, inspReportsPage, subjectRequirementsReport);
+        clickOn3Link(reportsLink, inspReportsPage, subjectRequirementsReport);
         return new ReportsPage(driver);
     }
 
     //Справка по проведению инспекционных проверок жилищного фонда за период (на субъект)
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToInspectionReferenceReport() {
-        clickOnLink(reportsLink, inspReportsPage, inspectionReferenceReport);
+        clickOn3Link(reportsLink, inspReportsPage, inspectionReferenceReport);
         return new ReportsPage(driver);
     }
 
     //Реестр предписаний
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToRegistryRequirementsReport() {
-        clickOnLink(reportsLink, inspReportsPage, registryRequirementsReport);
+        clickOn3Link(reportsLink, inspReportsPage, registryRequirementsReport);
         return new ReportsPage(driver);
     }
     //Принятые меры административного воздействия за нарушения требований по раскрытию информации УО
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToAppliedAdministrativeMeasuresReport() {
-        clickOnLink(reportsLink, adminReports, appliedAdministrativeMeasuresReport);
+        clickOn3Link(reportsLink, adminReports, appliedAdministrativeMeasuresReport);
         return new ReportsPage(driver);
     }
 
     //Сводная информация о проведенных контрольных мероприятиях
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToImplementationOfControlMeasuresReport() {
-        clickOnLink(reportsLink, adminReports, implementationOfControlMeasuresReport);
+        clickOn3Link(reportsLink, adminReports, implementationOfControlMeasuresReport);
         return new ReportsPage(driver);
     }
 
     //Отчет по выявленным нарушениям
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToRevealedViolationPageReport() {
-        clickOnLink(reportsLink, adminReports, revealedViolationPageReport);
+        clickOn3Link(reportsLink, adminReports, revealedViolationPageReport);
         return new ReportsPage(driver);
     }
 
     //Отчет по несанкционированным перепланировкам
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToAdministrativeViolationsReport() {
-        clickOnLink(reportsLink, adminReports, administrativeViolationsReport);
+        clickOn3Link(reportsLink, adminReports, administrativeViolationsReport);
         return new ReportsPage(driver);
     }
 
     //Данные по возвратам административных дел
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToFinancialSanctionsReport() {
-        clickOnLink(reportsLink, adminReports, financialSanctionsReport);
+        clickOn3Link(reportsLink, adminReports, financialSanctionsReport);
         return new ReportsPage(driver);
     }
 
     //Отчет по финансовым санкциям
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToUnauthorizedRedevelopmentReport() {
-        clickOnLink(reportsLink, adminReports, unauthorizedRedevelopmentReport);
+        clickOn3Link(reportsLink, adminReports, unauthorizedRedevelopmentReport);
         return new ReportsPage(driver);
     }
 
     //Отчет по выставленным предписаниям
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToExposedPrescriptionsReport() {
-        clickOnLink(reportsLink, specialObjectsReports, exposedPrescriptionsReport);
+        clickOn3Link(reportsLink, specialObjectsReports, exposedPrescriptionsReport);
         return new ReportsPage(driver);
     }
 
     //Отчет по проверкам
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToSpecObjectsRptByChecksReport() {
-        clickOnLink(reportsLink, specialObjectsReports, specObjectsRptByChecksReport);
+        clickOn3Link(reportsLink, specialObjectsReports, specObjectsRptByChecksReport);
         return new ReportsPage(driver);
     }
 
     //Отчет по актам осмотра
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToSpecObjectsRptByInspectionActsReport() {
-        clickOnLink(reportsLink, specialObjectsReports, specObjectsRptByInspectionActsReport);
+        clickOn3Link(reportsLink, specialObjectsReports, specObjectsRptByInspectionActsReport);
         return new ReportsPage(driver);
     }
 
     //Журнал распоряжений
     @Step("Переходим на страницу \"Журнал распоряжений\"")
     public JournalsPage userGoToInstructionsJournal(){
-        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, instructionsJournal);
+        clickOn3Link(journalsAnrRegistryLink, inspJourlalsLink, instructionsJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал мероприятий
     @Step("Переходим на страницу \"Журнал мероприятий\"")
     public JournalsPage userGoToEventsJournal(){
-        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, eventsJournal);
+        clickOn3Link(journalsAnrRegistryLink, inspJourlalsLink, eventsJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал актов проверок
     @Step("Переходим на страницу \"Журнал актов проверок\"")
     public JournalsPage userGoToActsJournal(){
-        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, actsJournal);
+        clickOn3Link(journalsAnrRegistryLink, inspJourlalsLink, actsJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал предписаний
     @Step("Переходим на страницу \"Журнал предписаний\"")
     public JournalsPage userGoToPrescriptionsJournal(){
-        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, prescriptionsJournal);
+        clickOn3Link(journalsAnrRegistryLink, inspJourlalsLink, prescriptionsJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал актов осмотра
     @Step("Переходим на страницу \"Журнал актов осмотра\"")
     public JournalsPage userGoToViewActsJournal(){
-        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, viewActsJournal);
+        clickOn3Link(journalsAnrRegistryLink, inspJourlalsLink, viewActsJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал определений об отказе в возбуждении дела
     @Step("Переходим на страницу \"Журнал определений об отказе в возбуждении дела\"")
     public JournalsPage userGoToCriminalJournal(){
-        clickOnLink(journalsAnrRegistryLink, inspJourlalsLink, criminalJournal);
+        clickOn3Link(journalsAnrRegistryLink, inspJourlalsLink, criminalJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал протоколов
     @Step("Переходим на страницу \"Журнал протоколов\"")
     public JournalsPage userGoToProtocolsJournal(){
-        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, protocolsJournal);
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, protocolsJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал дел об АП
     @Step("Переходим на страницу \"Журнал дел об АП\"")
     public JournalsPage userGoToApDealJournal(){
-        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, apDealJournal);
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, apDealJournal);
         return new JournalsPage(driver);
     }
 
     //"Журнал постановлений
     @Step("Переходим на страницу \"Журнал постановлений\"")
     public JournalsPage userGoToDecreeJournal(){
-        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, decreeJournal);
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, decreeJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал определений
     @Step("Переходим на страницу \"Журнал определений\"")
     public JournalsPage userGoToAdjunctJournal(){
-        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, adjunctJournal);
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, adjunctJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал жалоб
     @Step("Переходим на страницу \"Журнал жалоб\"")
     public JournalsPage userGoToClaimJournal(){
-        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, claimJournal);
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, claimJournal);
         return new JournalsPage(driver);
     }
 
     //Журнал представлений
     @Step("Переходим на страницу \"Журнал представлений\"")
     public JournalsPage userGoToRepresentJournal(){
-        clickOnLink(journalsAnrRegistryLink, adminPracticsLink, representJournal);
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, representJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал реестров
+    @Step("Переходим на страницу \"Журнал реестров\"")
+    public JournalsPage userGoToRegistryJournal(){
+        clickOn2Link(journalsAnrRegistryLink, registryJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал обращений
+    @Step("Переходим на страницу \"Журнал обращений\"")
+    public JournalsPage userGoToReferencesJournal(){
+        clickOn2Link(journalsAnrRegistryLink, referencesJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал распоряжений на проверку соискателей
+    @Step("Переходим на страницу \"Журнал распоряжений на проверку соискателей\"")
+    public JournalsPage userGoToInstructionsOnCheckApplicantsJournal(){
+        clickOn3Link(journalsAnrRegistryLink, licenseApplicantLink,instructionsOnCheckApplicantsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал актов проверки соискателей
+    @Step("Переходим на страницу \"Журнал актов проверки соискателей\"")
+    public JournalsPage userGoToActsOfChekingApplicantsJournal(){
+        clickOn3Link(journalsAnrRegistryLink, licenseApplicantLink, actsOfChekingApplicantsJournal);
         return new JournalsPage(driver);
     }
 }

@@ -154,4 +154,48 @@ public class JournalsTests extends TestBase {
         journalsPage.userFormedJournal();
         assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isRepresentJournalFormed());
     }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал реестров")
+    @Test
+    public void registryJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToRegistryJournal();
+        journalsPage.waitForPageRegistryJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isRegistryJournalFormed());
+    }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал обращений")
+    @Test
+    public void referencesJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToReferencesJournal();
+        journalsPage.waitForPageReferencesJournalTitleLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isReferencesJournalFormed());
+    }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал распоряжений на проверку соискателей")
+    @Test
+    public void instructionsOnCheckApplicantsJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToInstructionsOnCheckApplicantsJournal();
+        journalsPage.waitForPageInstructionsOnCheckApplicantsJournalTitleLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isInstructionsOnCheckApplicantsJournalFormed());
+    }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал актов проверки соискателей")
+    @Test
+    public void actsOfChekingApplicantsJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToActsOfChekingApplicantsJournal();
+        journalsPage.waitForPageActsOfChekingApplicantsJournalTitleLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isActsOfChekingApplicantsJournalFormed());
+    }
 }

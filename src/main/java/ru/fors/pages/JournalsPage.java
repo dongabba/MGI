@@ -29,6 +29,10 @@ public class JournalsPage extends MainMenu {
     By claimJournalTitle = By.xpath("//h3[text()='Жалобы']");
     By representJournalTitle = By.xpath("//h3[text()='Представления об устранении причин и условий, способствовавших совершению административного правонарушения']");
     By tableWithResultInAdmPractice = By.xpath("//*[@class='table-wrap']//tbody/tr[1]");
+    By registryJournalTitle = By.xpath("//h3[text()='Реестры']");
+    By referencesJournalTitle = By.xpath("//h3[text()='Обращения']");
+    By instructionsOnCheckApplicantsJournalTitle = By.xpath("//h3[text()='Распоряжения РС-']");
+    By actsOfChekingApplicantsJournalTitle = By.xpath("//h3[text()='Акты проверки соискателей лицензии']");
 
     public void waitForPageInstructionsJournalLoaded (){
         wait.until(ExpectedConditions.visibilityOfElementLocated(instructionsJournalTitle));
@@ -119,7 +123,23 @@ public class JournalsPage extends MainMenu {
         wait.until(ExpectedConditions.visibilityOfElementLocated(representJournalTitle));
     }
 
-    @Step("Проверяем, сформировался ли журнал тротоколов")
+    public void waitForPageRegistryJournalLoaded (){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(registryJournalTitle));
+    }
+
+    public void waitForPageReferencesJournalTitleLoaded (){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(referencesJournalTitle));
+    }
+
+    public void waitForPageInstructionsOnCheckApplicantsJournalTitleLoaded (){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(instructionsOnCheckApplicantsJournalTitle));
+    }
+
+    public void waitForPageActsOfChekingApplicantsJournalTitleLoaded (){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(actsOfChekingApplicantsJournalTitle));
+    }
+
+    @Step("Проверяем, сформировался ли журнал протоколов")
     public boolean isProtocolsJournalFormed(){
         return isJournalFormed(tableWithResultInAdmPractice);
     }
@@ -145,6 +165,26 @@ public class JournalsPage extends MainMenu {
 
     @Step("Проверяем, сформировался ли журнал представлений")
     public boolean isRepresentJournalFormed(){
+        return isJournalFormed(tableWithResultInAdmPractice);
+    }
+
+    @Step("Проверяем, сформировался ли журнал реестров")
+    public boolean isRegistryJournalFormed(){
+        return isJournalFormed(tableWithResultInAdmPractice);
+    }
+
+    @Step("Проверяем, сформировался ли журнал обращений")
+    public boolean isReferencesJournalFormed(){
+        return isJournalFormed(tableWithResultInAdmPractice);
+    }
+
+    @Step("Проверяем, сформировался ли журнал распоряжений на проверку соискателей")
+    public boolean isInstructionsOnCheckApplicantsJournalFormed(){
+        return isJournalFormed(tableWithResultInAdmPractice);
+    }
+
+    @Step("Проверяем, сформировался ли журнал актов проверки соискателей")
+    public boolean isActsOfChekingApplicantsJournalFormed(){
         return isJournalFormed(tableWithResultInAdmPractice);
     }
 }
