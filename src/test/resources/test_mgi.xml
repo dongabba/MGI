@@ -2,6 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TestEnviromentTestSuite">
 		<suite-file path="boss_test.xml" />
-		<suite-file path="employee_test.xml" />
+		<suite-file path="specialist_oap_test.xml" />
 		<suite-file path="insp_test.xml" />
 </suite>
