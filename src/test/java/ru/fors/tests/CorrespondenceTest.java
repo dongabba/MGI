@@ -37,7 +37,7 @@ public class CorrespondenceTest extends TestBase {
         correspondencePage.userFormedPage();
         assertTrue("Данные не сформировались за 1 минуту", correspondencePage.isSentCorrespondencePageFormed());
     }
-    
+
     @Features("Корреспонденция")
     @Stories("Вручение документов")
     @Test

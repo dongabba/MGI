@@ -55,4 +55,9 @@
 			<class name="ru.fors.tests.DocsSearchTests"/>
 		</classes>
 	</test>
+	<test name = "CorrespondenceTestsInspRole">
+		<classes>
+			<class name="ru.fors.tests.CorrespondenceTest"/>
+		</classes>
+	</test>
 </suite>
