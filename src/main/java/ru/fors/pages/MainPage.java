@@ -12,7 +12,7 @@ public class MainPage extends MainMenu {
 		super(driver);
 	}
 	By userInformationContainer = By.cssSelector(".user-information");
-	By userRole = By.cssSelector(".user-information span");
+	By userRole = By.cssSelector(".page-title__arm");
 	By logoutLink = By.linkText("Выход");
 
 	public MainPage waitForPageLoaded(){

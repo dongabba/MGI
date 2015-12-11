@@ -3,7 +3,7 @@
 <suite name="roleBossTests">
 	<parameter name="username" value="cao_mgi_boss" />
 	<parameter name="password" value="cao_mgi_boss" />
-	<parameter name="role" value="Качалов А. С." />
+	<parameter name="role" value="АРМ «Руководитель»" />
 	<test name = "UserLoginAsBoss">
 			<classes>
 				<class name="ru.fors.tests.LoginTests"/>

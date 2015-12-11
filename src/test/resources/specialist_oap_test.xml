@@ -3,7 +3,7 @@
 <suite name="roleSpecialistOapTests">
 	<parameter name="username" value="cao_mgi_specialist_oap" />
 	<parameter name="password" value="cao_mgi_specialist_oap" />
-	<parameter name="role" value="Орлова А. В." />
+	<parameter name="role" value="АРМ «Специалист ОАП»" />
 	<test name = "UserLoginAsSpecialistOap">
 			<classes>
 				<class name="ru.fors.tests.LoginTests"/>

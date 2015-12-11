@@ -3,7 +3,7 @@
 <suite name="roleEmployeeTests">
 	<parameter name="username" value="cao_mgi_employee" />
 	<parameter name="password" value="cao_mgi_employee" />
-	<parameter name="role" value="Брыкина И. А." />
+	<parameter name="role" value="АРМ «Инспектор»" />
 	<test name = "UserLoginAsEmployee">
 			<classes>
 				<class name="ru.fors.tests.LoginTests"/>
