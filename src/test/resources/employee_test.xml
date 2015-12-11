@@ -58,4 +58,9 @@
 			<class name="ru.fors.tests.DocsSearchTests"/>
 		</classes>
 	</test>
+	<test name = "InspectionsPlanTestsEmployeeRole">
+		<classes>
+			<class name="ru.fors.tests.InspectionsPlanTests"/>
+		</classes>
+	</test>
 </suite>

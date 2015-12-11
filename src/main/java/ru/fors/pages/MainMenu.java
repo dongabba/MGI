@@ -114,6 +114,11 @@ public class MainMenu extends Page{
     By deliveryDocs = By.linkText("Вручение документов");
     By registerNotifications = By.linkText("Регистрация уведомлений");
 
+    //=======План проведения проверок=======
+    By inspectionsPlanLink = By.linkText("План проведения проверок");
+    By jurAndIpPlan = By.linkText("План проверок ЮЛ/ИП");
+    By omsPlan = By.linkText("План проверок ОМС/ДЛ ОМС");
+
     //Данные по документам, введенным в ЕИС МЖИ
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToDataOfDocEnteredInMgiReport(){
@@ -567,6 +572,20 @@ public class MainMenu extends Page{
     public CorrespondencePage userGoToRegisterNotificationsPage(){
         clickOn2Link(correspondenceLink, registerNotifications);
         return new CorrespondencePage(driver);
+    }
+
+    //План проверок ЮЛ/ИП
+    @Step("Переходим на страницу \"План проведения проверок\" -> \"План проверок ЮЛ/ИП\"")
+    public InspectionsPlanPage userGoToJurAndIpPlanPage(){
+        clickOn2Link(inspectionsPlanLink, jurAndIpPlan);
+        return new InspectionsPlanPage(driver);
+    }
+
+    //План проверок ОМС/ДЛ ОМС
+    @Step("Переходим на страницу \"План проведения проверок\" -> \"План проверок ОМС/ДЛ ОМС\"")
+    public InspectionsPlanPage userGoToOmsPlanPage(){
+        clickOn2Link(inspectionsPlanLink, omsPlan);
+        return new InspectionsPlanPage(driver);
     }
 
 

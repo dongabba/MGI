@@ -60,4 +60,9 @@
 			<class name="ru.fors.tests.CorrespondenceTest"/>
 		</classes>
 	</test>
+	<test name = "InspectionsPlanTestsInspRole">
+		<classes>
+			<class name="ru.fors.tests.InspectionsPlanTests"/>
+		</classes>
+	</test>
 </suite>
