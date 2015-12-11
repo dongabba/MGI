@@ -21,7 +21,7 @@ public class FinControlPage extends MainMenu{
     By financeTitle = By.xpath("//h3[text()='Финансовые показатели по подразделениям МЖИ (руб)']");
     By findButton = By.xpath("//button[text()='Искать']");
     By resultTable = By.xpath("//*[@class='table-wrap']//tbody/tr[1]");
-    By financePageResult = By.linkText("//td[text()='ЖИ по ВАО']");
+    By financePageResult = By.xpath("//td[text()='ЖИ по ВАО']");
 
     public void userFormedPage(){
         click(findButton);

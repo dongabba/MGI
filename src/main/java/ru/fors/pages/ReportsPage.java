@@ -62,7 +62,7 @@ public class ReportsPage extends MainMenu {
     By onSSPWorkDetailedPageReportTitle = By.xpath("//h3[text()='Отчет по работе с ССП. Детализированный']");
     By administrativePenaltiesReportTitle = By.xpath("//h3[text()='Сведения о просроченной дебиторской задолженности по административным штрафам']");
     By reportOfAppealReportTitle = By.xpath("//h3[text()='Отчет по обжалованиям']");
-    By protocolsAndResolutionsReportTitle = By.xpath("//h3[text()='Протоколы и постановления по подразделениям МЖИ']");
+    By protocolsAndResolutionsReportTitle = By.xpath("//h3[text()='Протоколы и постановления  по подразделениям МЖИ']");
 
     public ReportsPage waitForReportLoaded(By element){
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
