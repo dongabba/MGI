@@ -29,4 +29,9 @@
 			<class name="ru.fors.tests.FinControlTests"/>
 		</classes>
 	</test>
+	<test name = "DocsSearchTestsSpecialistOapRole">
+		<classes>
+			<class name="ru.fors.tests.DocsSearchTests"/>
+		</classes>
+	</test>
 </suite>

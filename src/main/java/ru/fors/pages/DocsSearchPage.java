@@ -1,0 +1,36 @@
+package ru.fors.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+/**
+ * Created by Alexander Zhaleyko on 11.12.2015.
+ */
+public class DocsSearchPage extends MainMenu {
+    public DocsSearchPage(WebDriver driver) {
+        super(driver);
+    }
+
+    By docsSearchPageTitle = By.xpath("//h3[text()='Документы инспекционной деятельности']");
+    By searchButton = By.xpath("//button[text()='Искать']");
+    By resultsTable = By.xpath("//*[@class='table-wrap']//tbody/tr[1]");
+
+    public void waitForDocsSearchPageLoaded(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(docsSearchPageTitle));
+    }
+
+    public void userFormedPage(){
+        click(searchButton);
+    }
+
+    public boolean isPageDocsSearchFormed(){
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(resultsTable));
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+}

@@ -48,4 +48,9 @@
 			<class name="ru.fors.tests.FinControlTests"/>
 		</classes>
 	</test>
+	<test name = "DocsSearchTestsBossRole">
+		<classes>
+			<class name="ru.fors.tests.DocsSearchTests"/>
+		</classes>
+	</test>
 </suite>

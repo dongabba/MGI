@@ -105,6 +105,8 @@ public class MainMenu extends Page{
     By profitAndpaymentsLink = By.linkText("Связывание начислений и платежей");
     By finance = By.linkText("Финансовые показатели");
 
+    //=======Поиск документов=======
+    By docsSearch = By.linkText("Поиск документов");
 
     //Данные по документам, введенным в ЕИС МЖИ
     @Step("Переходим на страницу отчета")
@@ -526,10 +528,19 @@ public class MainMenu extends Page{
         return new FinControlPage(driver);
     }
 
-    //Финансовые показатели
+    //Связывание начислений и платежей
     @Step("Переходим на страницу \"Финансовый контроль\" -> \"Финансовые показатели\"")
     public FinControlPage userGoToFinancePage(){
-        clickOn2Link(journalsAnrRegistryLink, finance);
+        clickOn2Link(finControlLink, finance);
         return new FinControlPage(driver);
     }
+
+    //Поиск документов
+    @Step("Переходим на страницу \"Поиск документов\"")
+    public DocsSearchPage userGoToDocsSearchPage(){
+        click(docsSearch);
+        return new DocsSearchPage(driver);
+    }
+
+
 }
