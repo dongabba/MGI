@@ -24,4 +24,9 @@
 			</methods>
 		</classes>
 	</test>
+	<test name = "FinControlTestsSpecialistOapRole">
+		<classes>
+			<class name="ru.fors.tests.FinControlTests"/>
+		</classes>
+	</test>
 </suite>

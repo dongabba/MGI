@@ -43,4 +43,9 @@
 			</methods>
 		</classes>
 	</test>
+	<test name = "FinControlTestsBossRole">
+		<classes>
+			<class name="ru.fors.tests.FinControlTests"/>
+		</classes>
+	</test>
 </suite>

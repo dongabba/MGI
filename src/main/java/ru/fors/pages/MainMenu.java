@@ -97,6 +97,14 @@ public class MainMenu extends Page{
     By instructionsOnCheckApplicantsJournal = By.linkText("Журнал распоряжений на проверку соискателей");
     By actsOfChekingApplicantsJournal = By.linkText("Журнал актов проверки соискателей");
 
+    //=======Финансовый контроль=======
+    By finControlLink = By.linkText("Финансовый контроль");
+    By profit = By.linkText("Начисления");
+    By payments = By.linkText("Платежи");
+    By applicationsForRefund = By.linkText("Заявки на возврат");
+    By profitAndpaymentsLink = By.linkText("Связывание начислений и платежей");
+    By finance = By.linkText("Финансовые показатели");
+
 
     //Данные по документам, введенным в ЕИС МЖИ
     @Step("Переходим на страницу отчета")
@@ -488,5 +496,40 @@ public class MainMenu extends Page{
     public JournalsPage userGoToCoverLettersJournal(){
         clickOn2Link(journalsAnrRegistryLink, coverLettersJournal);
         return new JournalsPage(driver);
+    }
+
+    //Начисления
+    @Step("Переходим на страницу \"Финансовый контроль\" -> \"Начисления\"")
+    public FinControlPage userGoToProfitPage(){
+        clickOn2Link(finControlLink, profit);
+        return new FinControlPage(driver);
+    }
+
+    //Платежи
+    @Step("Переходим на страницу \"Финансовый контроль\" -> \"Платежи\"")
+    public FinControlPage userGoToPaymentsPage(){
+        clickOn2Link(finControlLink, payments);
+        return new FinControlPage(driver);
+    }
+
+    //Заявки на возврат
+    @Step("Переходим на страницу \"Финансовый контроль\" -> \"Заявки на возврат\"")
+    public FinControlPage userGoToApplicationsForRefundPage(){
+        clickOn2Link(finControlLink, applicationsForRefund);
+        return new FinControlPage(driver);
+    }
+
+    //Связывание начислений и платежей
+    @Step("Переходим на страницу \"Финансовый контроль\" -> \"Связывание начислений и платежей\"")
+    public FinControlPage userGoToProfitAndPaymentsPage(){
+        clickOn2Link(finControlLink, profitAndpaymentsLink);
+        return new FinControlPage(driver);
+    }
+
+    //Финансовые показатели
+    @Step("Переходим на страницу \"Финансовый контроль\" -> \"Финансовые показатели\"")
+    public FinControlPage userGoToFinancePage(){
+        clickOn2Link(journalsAnrRegistryLink, finance);
+        return new FinControlPage(driver);
     }
 }
