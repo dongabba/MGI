@@ -3,6 +3,7 @@ package ru.fors.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by Alexander Zhaleyko on 11.12.2015.
@@ -23,7 +24,7 @@ public class DocsSearchPage extends MainMenu {
     public void userFormedPage(){
         click(searchButton);
     }
-
+    @Step("Проверяем сформировалась ли таблица с результатами")
     public boolean isPageDocsSearchFormed(){
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(resultsTable));

@@ -108,6 +108,12 @@ public class MainMenu extends Page{
     //=======Поиск документов=======
     By docsSearch = By.linkText("Поиск документов");
 
+    //=======Корреспонденция=======
+    By correspondenceLink = By.linkText("Корреспонденция");
+    By sentCorrespondence = By.linkText("Реестры исх. корреспонденции");
+    By deliveryDocs = By.linkText("Вручение документов");
+    By registerNotifications = By.linkText("Регистрация уведомлений");
+
     //Данные по документам, введенным в ЕИС МЖИ
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToDataOfDocEnteredInMgiReport(){
@@ -540,6 +546,27 @@ public class MainMenu extends Page{
     public DocsSearchPage userGoToDocsSearchPage(){
         click(docsSearch);
         return new DocsSearchPage(driver);
+    }
+
+    //Реестры исходящей корреспонденции
+    @Step("Переходим на страницу \"Корреспонденция\" -> \"Реестры исходящей корреспонденции\"")
+    public CorrespondencePage userGoToSentCorrespondencePage(){
+        clickOn2Link(correspondenceLink, sentCorrespondence);
+        return new CorrespondencePage(driver);
+    }
+
+    //Вручение документов
+    @Step("Переходим на страницу \"Корреспонденция\" -> \"Вручение документов\"")
+    public CorrespondencePage userGoToDeliveryDocsPage(){
+        clickOn2Link(correspondenceLink, deliveryDocs);
+        return new CorrespondencePage(driver);
+    }
+
+    //Регистрация уведомлений
+    @Step("Переходим на страницу \"Корреспонденция\" -> \"Регистрация уведомлений\"")
+    public CorrespondencePage userGoToRegisterNotificationsPage(){
+        clickOn2Link(correspondenceLink, registerNotifications);
+        return new CorrespondencePage(driver);
     }
 
 

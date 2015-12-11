@@ -3,6 +3,7 @@ package ru.fors.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by Alexander Zhaleyko on 11.12.2015.
@@ -58,23 +59,23 @@ public class FinControlPage extends MainMenu{
             return false;
         }
     }
-
+    @Step("Проверяем сформировалась ли таблица с результатами")
     public boolean isProfitPageFormed(){
         return isPageFormed(resultTable);
     }
-
+    @Step("Проверяем сформировалась ли таблица с результатами")
     public boolean isPaymentsPageFormed(){
         return isPageFormed(resultTable);
     }
-
+    @Step("Проверяем сформировалась ли таблица с результатами")
     public boolean isApplicationsForRefundPageFormed(){
         return isPageFormed(resultTable);
     }
-
+    @Step("Проверяем сформировалась ли таблица с результатами")
     public boolean isProfitAndPaymentsPageFormed(){
         return isPageFormed(resultTable);
     }
-
+    @Step("Проверяем сформировалась ли таблица с результатами")
     public boolean isFinancePageFormed(){
         return isPageFormed(financePageResult);
     }
