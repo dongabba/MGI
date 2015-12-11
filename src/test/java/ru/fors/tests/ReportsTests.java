@@ -253,4 +253,174 @@ public class ReportsTests extends TestBase{
         reportsPage.userBuildFinancialSanctionsReport();
         assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isFinancialSanctionsReportFormed());
     }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Выполнение плана проведения плановых проверок\"")
+    @Test
+    public void planOfScheduledInspectionsReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToPlanOfScheduledInspectionsReport();
+        reportsPage.userBuildPlanOfScheduledInspectionsReport(dateFormat.format(date));
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isPlanOfScheduledInspectionsReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Данные по внеплановым проверкам\"")
+    @Test
+    public void dataForNonRoutineInspectionsReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToDataForNonRoutineInspectionsReport();
+        reportsPage.userBuildDataForNonRoutineInspectionsReport(dateFormat.format(date));
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isDataForNonRoutineInspectionsReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Данные по плановым проверкам\"")
+    @Test
+    public void dataForPlannedInspectionsReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToDataForPlannedInspectionsReport();
+        reportsPage.userBuildDataForPlannedInspectionsReport(dateFormat.format(date));
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isDataForPlannedInspectionsReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по обращениям подразделений в прокуратуру для согласования проведения внеплановых проверок ЮЛ\"")
+    @Test
+    public void appealsToTheProsecutorReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToAppealsToTheProsecutorReport();
+        reportsPage.userBuildAppealsToTheProsecutorReport(dateFormat.format(date));
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isAppealsToTheProsecutorReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Сведения о работе Государственной жилищной инспекции города Москвы\"")
+    @Test
+    public void dataGZHIWorkReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToDataGZHIWorkReport();
+        reportsPage.userBuildDataGZHIWorkReport(dateFormat.format(date));
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isDataGZHIWorkReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Сведения об осуществлении государственного контроля (надзора) и муниципального контроля\"")
+    @Test
+    public void dataGosControlReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userBuildDataGosControlReport();
+        reportsPage.userBuildDataGosControlReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isDataGosControlReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Дела, переданные на рассмотрение по подведомственности\"")
+    @Test
+    public void casesRefferedForConsiderationReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToCasesRefferedForConsiderationReport();
+        reportsPage.userBuildCasesRefferedForConsiderationReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isCasesRefferedForConsiderationReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по неврученным постановлениям\"")
+    @Test
+    public void nonDeliveryResolutionsReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToNonDeliveryResolutionsReport();
+        reportsPage.userBuildNonDeliveryResolutionsReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isNonDeliveryResolutionsReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по неоплаченным постановлениям\"")
+    @Test
+    public void unPaidResolutionsReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToUnPaidResolutionsReport();
+        reportsPage.userBuildUnPaidResolutionsReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isUnPaidResolutionsReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по количеству проверенных дел\"")
+    @Test
+    public void numberOfVerifiedCasesReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToNumberOfVerifiedCasesReport();
+        reportsPage.userBuildNumberOfVerifiedCasesReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isNumberOfVerifiedCasesReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Дела на проверке в ОАП\"")
+    @Test
+    public void casesPendingVerificationOAPReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToCasesPendingVerificationOAPReport();
+        reportsPage.userBuildCasesPendingVerificationOAPReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isCasesPendingVerificationOAPReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Протоколы, составленные по статьям\"")
+    @Test
+    public void protocolsCreatedByArticlesReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToProtocolsCreatedByArticlesReport();
+        reportsPage.userBuildProtocolsCreatedByArticlesReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isProtocolsCreatedByArticlesReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по работе с ССП. Сводный\"")
+    @Test
+    public void onSSPWorkConsolidPageReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToOnSSPWorkConsolidPageReportReport();
+        reportsPage.userBuildOnSSPWorkConsolidPageReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isOnSSPWorkConsolidPageReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по работе с ССП. Детализированный\"")
+    @Test
+    public void onSSPWorkDetailedPageReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToOnSSPWorkDetailedPageReport();
+        reportsPage.userBuildOnSSPWorkDetailedPageReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isOnSSPWorkDetailedPageReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Сведения о просроченной дебиторской задолженности по административным штрафам\"")
+    @Test
+    public void administrativePenaltiesReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToAdministrativePenaltiesReport();
+        reportsPage.userBuildAdministrativePenaltiesReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isAdministrativePenaltiesReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Отчет по обжалованиям\"")
+    @Test
+    public void reportOfAppealReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToReportOfAppealReport();
+        reportsPage.userBuildReportOfAppealReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isReportOfAppealReportFormed());
+    }
+
+    @Features("Отчеты")
+    @Stories("Отчет \"Протоколы и постановления  по подразделениям МЖИ\"")
+    @Test
+    public void protocolsAndResolutionsReportTest() throws InterruptedException {
+        ReportsPage reportsPage = new ReportsPage(driver);
+        reportsPage.userGoToProtocolsAndResolutionsReport();
+        reportsPage.userBuildProtocolsAndResolutionsReport();
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isProtocolsAndResolutionsReportFormed());
+    }
 }

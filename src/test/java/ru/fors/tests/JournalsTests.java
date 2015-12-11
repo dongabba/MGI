@@ -4,7 +4,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ru.fors.pages.JournalsPage;
-import ru.fors.pages.ReportsPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
@@ -172,7 +171,7 @@ public class JournalsTests extends TestBase {
     public void referencesJournalTest() throws InterruptedException {
         JournalsPage journalsPage = new JournalsPage(driver);
         journalsPage.userGoToReferencesJournal();
-        journalsPage.waitForPageReferencesJournalTitleLoaded();
+        journalsPage.waitForPageReferencesJournalLoaded();
         journalsPage.userFormedJournal();
         assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isReferencesJournalFormed());
     }
@@ -183,7 +182,7 @@ public class JournalsTests extends TestBase {
     public void instructionsOnCheckApplicantsJournalTest() throws InterruptedException {
         JournalsPage journalsPage = new JournalsPage(driver);
         journalsPage.userGoToInstructionsOnCheckApplicantsJournal();
-        journalsPage.waitForPageInstructionsOnCheckApplicantsJournalTitleLoaded();
+        journalsPage.waitForPageInstructionsOnCheckApplicantsJournalLoaded();
         journalsPage.userFormedJournal();
         assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isInstructionsOnCheckApplicantsJournalFormed());
     }
@@ -194,8 +193,41 @@ public class JournalsTests extends TestBase {
     public void actsOfChekingApplicantsJournalTest() throws InterruptedException {
         JournalsPage journalsPage = new JournalsPage(driver);
         journalsPage.userGoToActsOfChekingApplicantsJournal();
-        journalsPage.waitForPageActsOfChekingApplicantsJournalTitleLoaded();
+        journalsPage.waitForPageActsOfChekingApplicantsJournalLoaded();
         journalsPage.userFormedJournal();
         assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isActsOfChekingApplicantsJournalFormed());
+    }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал реестров для специалиста ОАП")
+    @Test
+    public void registryJournalForSpecialistOAPTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToRegistryForOAPSpecialistJournal();
+        journalsPage.waitForPageRegistryJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isRegistryJournalFormed());
+    }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал дел, поступивших по подведомственности")
+    @Test
+    public void receivedOnJurisdictionAPJournalTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToReceivedOnJurisdictionAPJournal();
+        journalsPage.waitForPageReceivedOnJurisdictionAPJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isReceivedOnJurisdictionAPJournalFormed());
+    }
+
+    @Features("Журналы и реестры")
+    @Stories("Журнал сопроводительных писем в ССП")
+    @Test
+    public void coverLettersJournalFormedTest() throws InterruptedException {
+        JournalsPage journalsPage = new JournalsPage(driver);
+        journalsPage.userGoToCoverLettersJournal();
+        journalsPage.waitForPageCoverLettersJournalLoaded();
+        journalsPage.userFormedJournal();
+        assertTrue("Журнал не сформировался или в нем нет данных", journalsPage.isPageCoverLettersJournalFormed());
     }
 }

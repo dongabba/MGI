@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
- * Created by azhaleyko on 02.12.2015.
+ * Created by Alexander Zhaleyko on 02.12.2015.
  */
 public class MainMenu extends Page{
     public MainMenu(WebDriver driver) {
@@ -28,6 +28,12 @@ public class MainMenu extends Page{
     By subjectRequirementsReport = By.linkText("Список документов, выданных на субъект предписания");
     By inspectionReferenceReport = By.linkText("Справка по проведению инспекционных проверок жилищного фонда за период (на субъект)");
     By registryRequirementsReport = By.linkText("Реестр предписаний");
+    By planOfScheduledInspectionsReport = By.linkText("Выполнение плана проведения плановых проверок");
+    By dataForNonRoutineInspectionsReport = By.linkText("Данные по внеплановым проверкам");
+    By dataForPlannedInspectionsReport = By.linkText("Данные по плановым проверкам");
+    By appealsToTheProsecutorReport = By.linkText("Отчет по обращениям подразделений в прокуратуру для согласования проведения внеплановых проверок ЮЛ");
+    By dataGZHIWorkReport = By.linkText("Сведения о работе Государственной жилищной инспекции города Москвы");
+    By dataGosControlReport = By.linkText("Сведения об осуществлении государственного контроля (надзора) и муниципального контроля");
 
     //=======Меню административные========
     By adminReports = By.linkText("Административные");
@@ -37,6 +43,17 @@ public class MainMenu extends Page{
     By unauthorizedRedevelopmentReport = By.linkText("Отчет по несанкционированным перепланировкам");
     By administrativeViolationsReport = By.linkText("Данные по возвратам административных дел");
     By financialSanctionsReport = By.linkText("Отчет по финансовым санкциям");
+    By casesRefferedForConsiderationReport = By.linkText("Дела, переданные на рассмотрение по подведомственности");
+    By nonDeliveryResolutionsReport = By.linkText("Отчет по неврученным постановлениям");
+    By unPaidResolutionsReport = By.linkText("Отчет по неоплаченным постановлениям");
+    By numberOfVerifiedCasesReport = By.linkText("Отчет по количеству проверенных дел");
+    By casesPendingVerificationOAPReport = By.linkText("Дела на проверке в ОАП");
+    By protocolsCreatedByArticlesReport = By.linkText("Протоколы, составленные по статьям");
+    By onSSPWorkConsolidPageReport = By.linkText("Отчет по работе с ССП. Сводный");
+    By onSSPWorkDetailedPageReport = By.linkText("Отчет по работе с ССП. Детализированный");
+    By administrativePenaltiesReport = By.linkText("Сведения о просроченной дебиторской задолженности по административным штрафам");
+    By reportOfAppealReport = By.linkText("Отчет по обжалованиям");
+    By protocolsAndResolutionsReport = By.linkText("Протоколы и постановления  по подразделениям МЖИ");
 
     //=======По особым объектам========
     By specialObjectsReports = By.linkText("По особым объектам");
@@ -64,6 +81,10 @@ public class MainMenu extends Page{
     By adjunctJournal = By.linkText("Журнал определений");
     By claimJournal = By.linkText("Журнал жалоб");
     By representJournal = By.linkText("Журнал представлений");
+    By receivedOnJurisdictionAPJournal = By.linkText("Журнал дел, поступивших по подведомственности");
+
+    //Журнал сопроводительных писем в ССП
+    By coverLettersJournal = By.linkText("Журнал сопроводительных писем в ССП");
 
     //=======Журнал реестров=======
     By registryJournal = By.linkText("Журнал реестров");
@@ -216,6 +237,126 @@ public class MainMenu extends Page{
         return new ReportsPage(driver);
     }
 
+    //Отчет выполнение плана проведения плановых проверок
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToPlanOfScheduledInspectionsReport() {
+        clickOn3Link(reportsLink, inspReportsPage, planOfScheduledInspectionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Данные по внеплановым проверкам
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToDataForNonRoutineInspectionsReport() {
+        clickOn3Link(reportsLink, inspReportsPage, dataForNonRoutineInspectionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Данные по плановым проверкам
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToDataForPlannedInspectionsReport() {
+        clickOn3Link(reportsLink, inspReportsPage, dataForPlannedInspectionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по обращениям подразделений в прокуратуру для согласования проведения внеплановых проверок ЮЛ
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToAppealsToTheProsecutorReport() {
+        clickOn3Link(reportsLink, inspReportsPage, appealsToTheProsecutorReport);
+        return new ReportsPage(driver);
+    }
+
+    //Сведения о работе Государственной жилищной инспекции города Москвы
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToDataGZHIWorkReport() {
+        clickOn3Link(reportsLink, inspReportsPage, dataGZHIWorkReport);
+        return new ReportsPage(driver);
+    }
+
+    //Сведения об осуществлении государственного контроля (надзора) и муниципального контроля
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToDataGosControlReport() {
+        clickOn3Link(reportsLink, inspReportsPage, dataGosControlReport);
+        return new ReportsPage(driver);
+    }
+
+    //Дела, переданные на рассмотрение по подведомственности
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToCasesRefferedForConsiderationReport() {
+        clickOn3Link(reportsLink, adminReports, casesRefferedForConsiderationReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по неврученным постановлениям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToNonDeliveryResolutionsReport() {
+        clickOn3Link(reportsLink, adminReports, nonDeliveryResolutionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по неоплаченным постановлениям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToUnPaidResolutionsReport() {
+        clickOn3Link(reportsLink, adminReports, unPaidResolutionsReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по количеству проверенных дел
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToNumberOfVerifiedCasesReport() {
+        clickOn3Link(reportsLink, adminReports, numberOfVerifiedCasesReport);
+        return new ReportsPage(driver);
+    }
+
+    //Дела на проверке в ОАП
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToCasesPendingVerificationOAPReport() {
+        clickOn3Link(reportsLink, adminReports, casesPendingVerificationOAPReport);
+        return new ReportsPage(driver);
+    }
+
+    //Протоколы, составленные по статьям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToProtocolsCreatedByArticlesReport() {
+        clickOn3Link(reportsLink, adminReports, protocolsCreatedByArticlesReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по работе с ССП. Сводный
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToOnSSPWorkConsolidPageReportReport() {
+        clickOn3Link(reportsLink, adminReports, onSSPWorkConsolidPageReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по работе с ССП. Детализированный
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToOnSSPWorkDetailedPageReport() {
+        clickOn3Link(reportsLink, adminReports, onSSPWorkDetailedPageReport);
+        return new ReportsPage(driver);
+    }
+
+    //Сведения о просроченной дебиторской задолженности по административным штрафам
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToAdministrativePenaltiesReport() {
+        clickOn3Link(reportsLink, adminReports, administrativePenaltiesReport);
+        return new ReportsPage(driver);
+    }
+
+    //Отчет по обжалованиям
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToReportOfAppealReport() {
+        clickOn3Link(reportsLink, adminReports, reportOfAppealReport);
+        return new ReportsPage(driver);
+    }
+
+    //Протоколы и постановления  по подразделениям МЖИ
+    @Step("Переходим на страницу отчета")
+    public ReportsPage userGoToProtocolsAndResolutionsReport() {
+        clickOn3Link(reportsLink, adminReports, protocolsAndResolutionsReport);
+        return new ReportsPage(driver);
+    }
+
+
     //Журнал распоряжений
     @Step("Переходим на страницу \"Журнал распоряжений\"")
     public JournalsPage userGoToInstructionsJournal(){
@@ -325,6 +466,27 @@ public class MainMenu extends Page{
     @Step("Переходим на страницу \"Журнал актов проверки соискателей\"")
     public JournalsPage userGoToActsOfChekingApplicantsJournal(){
         clickOn3Link(journalsAnrRegistryLink, licenseApplicantLink, actsOfChekingApplicantsJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал реестров для специалиста ОАП
+    @Step("Переходим на страницу \"Журнал реестров\"")
+    public JournalsPage userGoToRegistryForOAPSpecialistJournal(){
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, registryJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал дел, поступивших по подведомственности
+    @Step("Переходим на страницу \"Журнал дел, поступивших по подведомственности\"")
+    public JournalsPage userGoToReceivedOnJurisdictionAPJournal(){
+        clickOn3Link(journalsAnrRegistryLink, adminPracticsLink, receivedOnJurisdictionAPJournal);
+        return new JournalsPage(driver);
+    }
+
+    //Журнал сопроводительных писем в ССП
+    @Step("Переходим на страницу \"Журнал сопроводительных писем в ССП\"")
+    public JournalsPage userGoToCoverLettersJournal(){
+        clickOn2Link(journalsAnrRegistryLink, coverLettersJournal);
         return new JournalsPage(driver);
     }
 }

@@ -18,12 +18,34 @@
 					<exclude name="specObjectsRptByInspectionActsReportTest"/>
 					<exclude name="administrativeViolationsReportTest"/>
 					<exclude name="financialSanctionsReportTest"/>
+					<exclude name="planOfScheduledInspectionsReportTest"/>
+					<exclude name="dataForNonRoutineInspectionsReportTest"/>
+					<exclude name="dataForPlannedInspectionsReportTest"/>
+					<exclude name="appealsToTheProsecutorReportTest"/>
+					<exclude name="dataGZHIWorkReportTest"/>
+					<exclude name="dataGosControlReportTest"/>
+					<exclude name="casesRefferedForConsiderationReportTest"/>
+					<exclude name="nonDeliveryResolutionsReportTest"/>
+					<exclude name="unPaidResolutionsReportTest"/>
+					<exclude name="numberOfVerifiedCasesReportTest"/>
+					<exclude name="casesPendingVerificationOAPReportTest"/>
+					<exclude name="protocolsCreatedByArticlesReportTest"/>
+					<exclude name="onSSPWorkConsolidPageReportTest"/>
+					<exclude name="onSSPWorkDetailedPageReportTest"/>
+					<exclude name="administrativePenaltiesReportTest"/>
+					<exclude name="reportOfAppealReportTest"/>
+					<exclude name="protocolsAndResolutionsReportTest"/>
 				</methods>
 		</classes>
 	</test>
 	<test name = "JournalsTestEmployeeRole">
 		<classes>
 			<class name="ru.fors.tests.JournalsTests"/>
+				<methods>
+					<exclude name="registryJournalForSpecialistOAPTest"/>
+					<exclude name="receivedOnJurisdictionAPJournalTest"/>
+					<exclude name="coverLettersJournalFormedTest"/>
+				</methods>
 		</classes>
 	</test>
 </suite>
