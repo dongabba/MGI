@@ -309,7 +309,7 @@ public class ReportsTests extends TestBase{
     @Test
     public void dataGosControlReportTest() throws InterruptedException {
         ReportsPage reportsPage = new ReportsPage(driver);
-        reportsPage.userBuildDataGosControlReport();
+        reportsPage.userGoToDataGosControlReport();
         reportsPage.userBuildDataGosControlReport();
         assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isDataGosControlReportFormed());
     }

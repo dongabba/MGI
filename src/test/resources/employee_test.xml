@@ -42,6 +42,7 @@
 		<classes>
 			<class name="ru.fors.tests.JournalsTests"/>
 				<methods>
+					<exclude name="registryJournalTest"/>
 					<exclude name="registryJournalForSpecialistOAPTest"/>
 					<exclude name="receivedOnJurisdictionAPJournalTest"/>
 					<exclude name="coverLettersJournalFormedTest"/>

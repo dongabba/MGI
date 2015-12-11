@@ -27,7 +27,7 @@ public class DocsSearchTests extends TestBase {
         }
     }
 
-    @Features("Посик документов")
+    @Features("Поиск документов")
     @Stories("Поиск со значениями по умолчанию")
     @Test
     public void docsSearchTest() throws InterruptedException {

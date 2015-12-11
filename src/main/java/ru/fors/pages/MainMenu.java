@@ -53,7 +53,7 @@ public class MainMenu extends Page{
     By onSSPWorkDetailedPageReport = By.linkText("Отчет по работе с ССП. Детализированный");
     By administrativePenaltiesReport = By.linkText("Сведения о просроченной дебиторской задолженности по административным штрафам");
     By reportOfAppealReport = By.linkText("Отчет по обжалованиям");
-    By protocolsAndResolutionsReport = By.linkText("Протоколы и постановления  по подразделениям МЖИ");
+    By protocolsAndResolutionsReport = By.xpath("//a[contains(text(), 'Протоколы и постановления  по подразделениям МЖИ')]");
 
     //=======По особым объектам========
     By specialObjectsReports = By.linkText("По особым объектам");

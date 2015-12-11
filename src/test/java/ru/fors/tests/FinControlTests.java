@@ -77,7 +77,6 @@ public class FinControlTests extends TestBase {
         FinControlPage finControlPage = new FinControlPage(driver);
         finControlPage.userGoToFinancePage();
         finControlPage.waitForFinancePageLoaded();
-        finControlPage.userFormedPage();
         assertTrue("Данные не сформировались за 1 минуту", finControlPage.isFinancePageFormed());
     }
 }
