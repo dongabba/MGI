@@ -4,8 +4,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import ru.fors.pages.LoginPage;
-import ru.fors.pages.MainPage;
 import ru.fors.pages.ReportsPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
@@ -23,7 +21,6 @@ public class ReportsTests extends TestBase{
 
     @BeforeClass
     public void cleanWorkingDirectory(){
-        System.out.println("This is before class method");
         File file = new File("C:\\mgi_reports\\");
         File [] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
@@ -35,7 +32,6 @@ public class ReportsTests extends TestBase{
     @BeforeMethod
     @Parameters({"username", "password"})
     public void testStatus(String username, String password){
-        System.out.println("This is before method in test");
         if (driver == null){
             init();
             userLogin(username, password);
@@ -197,11 +193,11 @@ public class ReportsTests extends TestBase{
     @Features("Отчеты")
     @Stories("Отчет \"Отчет по несанкционированным перепланировкам\"")
     @Test
-    public void unauthorizedRedevelopmentReportTest() throws InterruptedException {
+    public void unauthorRemodelingReportTest() throws InterruptedException {
         ReportsPage reportsPage = new ReportsPage(driver);
-        reportsPage.userGoToUnauthorizedRedevelopmentReport();
-        reportsPage.userBuildUnauthorizedRedevelopmentReport();
-        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isUnauthorizedRedevelopmentReportFormed());
+        reportsPage.userGoToUnauthorRemodelingReport();
+        reportsPage.userBuildUnauthorizedRedevelopmentReport(dateFormat.format(date));
+        assertTrue("Файл с отчетом не сформировался за 1 минуту", reportsPage.isUnauthorRemodelingReportFormed());
     }
 
     @Features("Отчеты")

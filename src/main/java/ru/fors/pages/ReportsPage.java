@@ -40,7 +40,7 @@ public class ReportsPage extends MainMenu {
     By appliedAdministrativeMeasuresReportTitile = By.xpath("//h3[text()='Принятые меры административного воздействия за нарушения требований по раскрытию информации УО']");
     By implementationOfControlMeasuresReportTitle = By.xpath("//h3[text()='Сводная информация о проведенных контрольных мероприятиях']");
     By revealedViolationPageReportTitle = By.xpath("//h3[text()='Отчет по выявленным нарушениям']");
-    By unauthorizedRedevelopmentReportTitle = By.xpath("//h3[text()='Отчет по несанкционированным перепланировкам']");
+    By unauthorRemodelingReportTitle = By.xpath("//h3[text()='Отчет по несанкционированным перепланировкам']");
     By administrativeViolationsReportTitle = By.xpath("//h3[text()='Данные по возвратам административных дел']");
     By financialSanctionsReportTitle = By.xpath("//h3[text()='Отчет по финансовым санкциям']");
     By exposedPrescriptionsReportTitle = By.xpath("//h3[text()='Отчет по выставленным предписаниям']");
@@ -206,8 +206,10 @@ public class ReportsPage extends MainMenu {
         userBuildReport();
     }
 
-    public void userBuildUnauthorizedRedevelopmentReport() throws InterruptedException {
-        waitForReportLoaded(unauthorizedRedevelopmentReportTitle);
+    public void userBuildUnauthorizedRedevelopmentReport(String date) throws InterruptedException {
+        waitForReportLoaded(unauthorRemodelingReportTitle);
+        userSetDataFrom(date);
+        userSetDataTo(date);
         userBuildReport();
     }
 
@@ -450,8 +452,8 @@ public class ReportsPage extends MainMenu {
     }
 
     @Step("Проверяем наличие файла с отчетом")
-    public boolean isUnauthorizedRedevelopmentReportFormed()throws InterruptedException {
-        return isReportFormed("unauthorizedRedevelopmentReport");
+    public boolean isUnauthorRemodelingReportFormed()throws InterruptedException {
+        return isReportFormed("unauthorRemodeling");
     }
 
     @Step("Проверяем наличие файла с отчетом")

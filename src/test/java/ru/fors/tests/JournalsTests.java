@@ -18,7 +18,6 @@ public class JournalsTests extends TestBase {
     @BeforeMethod
     @Parameters({"username", "password"})
     public void testStatus(String username, String password){
-        System.out.println("This is before method in test");
         if (driver == null){
             init();
             userLogin(username, password);

@@ -26,7 +26,6 @@ public class TestBase {
 
 	@BeforeTest
 	public void init(){
-		System.out.println("This is before test INIT method");
 		baseUrl = PropertyLoader.loadProperty("site.url");
 		Browser browser = new Browser();
 		browser.setName(PropertyLoader.loadProperty("browser.name"));
@@ -40,7 +39,6 @@ public class TestBase {
 	@AfterTest
 	public static void tearDown() {
 		if (driver != null) {
-			System.out.println("This is after test method");
 			driver.quit();
 			driver = null;
 		}

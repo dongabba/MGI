@@ -40,7 +40,7 @@ public class MainMenu extends Page{
     By appliedAdministrativeMeasuresReport = By.linkText("Принятые меры административного воздействия за нарушения требований по раскрытию информации УО");
     By implementationOfControlMeasuresReport = By.linkText("Сводная информация о проведенных контрольных мероприятиях");
     By revealedViolationPageReport = By.linkText("Отчет по выявленным нарушениям");
-    By unauthorizedRedevelopmentReport = By.linkText("Отчет по несанкционированным перепланировкам");
+    By redevelopmentReport = By.linkText("Отчет по несанкционированным перепланировкам");
     By administrativeViolationsReport = By.linkText("Данные по возвратам административных дел");
     By financialSanctionsReport = By.linkText("Отчет по финансовым санкциям");
     By casesRefferedForConsiderationReport = By.linkText("Дела, переданные на рассмотрение по подведомственности");
@@ -223,17 +223,17 @@ public class MainMenu extends Page{
         return new ReportsPage(driver);
     }
 
-    //Данные по возвратам административных дел
+    //Отчет по финансовым санкциям
     @Step("Переходим на страницу отчета")
     public ReportsPage userGoToFinancialSanctionsReport() {
         clickOn3Link(reportsLink, adminReports, financialSanctionsReport);
         return new ReportsPage(driver);
     }
 
-    //Отчет по финансовым санкциям
+    //Отчет по несанкционированным перепланировкам
     @Step("Переходим на страницу отчета")
-    public ReportsPage userGoToUnauthorizedRedevelopmentReport() {
-        clickOn3Link(reportsLink, adminReports, unauthorizedRedevelopmentReport);
+    public ReportsPage userGoToUnauthorRemodelingReport() {
+        clickOn3Link(reportsLink, adminReports, redevelopmentReport);
         return new ReportsPage(driver);
     }
 
