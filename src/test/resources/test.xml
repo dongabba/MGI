@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="roleBossTests">
+	<parameter name="username" value="cao_mgi_boss" />
+	<parameter name="password" value="cao_mgi_boss" />
+	<parameter name="role" value="АРМ «Руководитель»" />
+	<test name = "UserLoginAsBoss">
+			<classes>
+				<class name="ru.fors.tests.LoginTests"/>
+			</classes>
+	</test>
+	<test name = "ReportsTestBossRole">
+		<classes>
+			<class name="ru.fors.tests.ReportsTests"/>
+			<methods>
+				<exclude name=".*" />
+				<include name= "dataOfDocEnteredInMgiReportTest" />
+			</methods>
+		</classes>
+	</test>
+</suite>

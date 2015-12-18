@@ -160,5 +160,16 @@
 				<suites>test_mgi</suites>
 			</properties>
 		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<site.url>${url}</site.url>
+				<wait>${wait.seconds}</wait>
+				<downloadDir>${windowsDir}</downloadDir>
+				<grid2.hub></grid2.hub>
+				<browser.name>firefox</browser.name>
+				<suites>test</suites>
+			</properties>
+		</profile>
 	</profiles>
 </project>
