@@ -21,14 +21,15 @@ public class ReportsTests extends TestBase{
 
 
     @BeforeClass
-    public void cleanWorkingDirectory(){
+    public void cleanWorkingDirectory() {
         File file = new File(dir);
-        File [] files = file.listFiles();
+        System.out.println("files lenght: " + file.listFiles().length);
+        File[] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
                 File f1 = files[i];
-                    f1.delete();
+                f1.delete();
             }
-    }
+        }
 
     @BeforeMethod
     @Parameters({"username", "password"})

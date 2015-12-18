@@ -15,6 +15,8 @@
 	  	<url>http://mgi.fors.ru/login?1</url>
 	  	<windowsDir>C:\\reports</windowsDir>
 	  	<wait.seconds>30</wait.seconds>
+		<hub.url>http://bamboo.fors.ru:4444/wd/hub</hub.url>
+		<hub2.url>http://172.24.12.154:4444/wd/hub</hub2.url>
    </properties>
 
 	<dependencies>
@@ -153,7 +155,7 @@
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
 				<downloadDir>${windowsDir}</downloadDir>
-				<grid2.hub>http://bamboo.fors.ru:4444/wd/hub</grid2.hub>
+				<grid2.hub>${hub2.url}</grid2.hub>
 				<browser.name>firefox</browser.name>
 				<suites>test_mgi</suites>
 			</properties>
