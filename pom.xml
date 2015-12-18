@@ -13,6 +13,7 @@
         <aspectj.version>1.8.5</aspectj.version>
 		<selenium.version>2.48.2</selenium.version>
 	  	<url>http://mgi.fors.ru/login?1</url>
+	  	<windowsDir>C:\\reports</windowsDir>
 	  	<wait.seconds>30</wait.seconds>
    </properties>
 
@@ -126,6 +127,8 @@
 			<properties>
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
+				<downloadDir>${windowsDir}</downloadDir>
+				<grid2.hub></grid2.hub>
 				<browser.name>firefox</browser.name>
 				<suites>test_mgi</suites>
 			</properties>
@@ -138,25 +141,20 @@
 			<properties>
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
+				<downloadDir>${windowsDir}</downloadDir>
+				<grid2.hub></grid2.hub>
 				<browser.name>chrome</browser.name>
 				<suites>test_mgi</suites>
 			</properties>
 		</profile>
 		<profile>
-			<id>prod_firefox</id>
+			<id>firefox_hub</id>
 			<properties>
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
+				<downloadDir>${windowsDir}</downloadDir>
+				<grid2.hub>http://bamboo.fors.ru:4444/wd/hub</grid2.hub>
 				<browser.name>firefox</browser.name>
-				<suites>test_mgi</suites>
-			</properties>
-		</profile>
-		<profile>
-			<id>prod_chrome</id>
-			<properties>
-				<site.url>${url}</site.url>
-				<wait>${wait.seconds}</wait>
-				<browser.name>chrome</browser.name>
 				<suites>test_mgi</suites>
 			</properties>
 		</profile>

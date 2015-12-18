@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.fors.utils.PropertyLoader;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.File;
@@ -354,7 +355,7 @@ public class ReportsPage extends MainMenu {
 
 
     public boolean isReportFormed(String reportName) throws InterruptedException {
-        File file = new File("C:\\mgi_reports\\");
+        File file = new File(PropertyLoader.loadProperty("downloadDir"));
         int count=0;
         for (int time = 0; time<118; time++) {
             File [] files = file.listFiles();

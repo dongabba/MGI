@@ -18,7 +18,10 @@ import ru.fors.utils.WebDriverFactory;
 public class TestBase {
 	
 	protected static WebDriver driver;
+
 	public String baseUrl;
+	public String gridHubUrl;
+	public String dir;
 
 	DateFormat dateFormat = new SimpleDateFormat("dd.MM.YYYY");
 	Date date = new Date();
@@ -27,9 +30,11 @@ public class TestBase {
 	@BeforeTest
 	public void init(){
 		baseUrl = PropertyLoader.loadProperty("site.url");
+		gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
+		dir = PropertyLoader.loadProperty("downloadDir");
 		Browser browser = new Browser();
 		browser.setName(PropertyLoader.loadProperty("browser.name"));
-		driver = WebDriverFactory.getInstance(browser);
+		driver = WebDriverFactory.getInstance(browser, dir, gridHubUrl);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 		

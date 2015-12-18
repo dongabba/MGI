@@ -8,7 +8,10 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,38 +20,85 @@ public class WebDriverFactory {
 	public static final String CHROME = "chrome";
 	public static final String FIREFOX = "firefox";
 	public static final String INTERNET_EXPLORER = "ie";
+    private static WebDriver webDriver;
 	
-	public static WebDriver getInstance(Browser browser) {
+	public static WebDriver getInstance(Browser browser, String dir, String gridHubUrl) {
 
         DesiredCapabilities capability = new DesiredCapabilities();
         capability.setJavascriptEnabled(true);
-        WebDriver webDriver = null;
-        if (webDriver != null) {
-            return webDriver;
-        }
+
 		String browserName = browser.getName();
+		if (gridHubUrl==null || gridHubUrl.length()==0){
+            return getInstance(browser, dir);
+        }
 		
 		if (CHROME.equals(browserName)) {
 			ChromeOptions options = new ChromeOptions();
 			Map<String, Object> prefs = new HashMap<String, Object>();
-			prefs.put("download.default_directory", "C:\\mgi_reports\\");
+			prefs.put("download.default_directory", dir);
 			prefs.put("download.prompt_for_dowload", false);
 			options.addArguments("start-maximized");
 			options.setExperimentalOption("prefs", prefs);
 			capability = DesiredCapabilities.chrome();
 			capability.setCapability(ChromeOptions.CAPABILITY, options);
-			webDriver = new ChromeDriver(capability);
 
 
 		} else if (FIREFOX.equals(browserName)) {
-			ProfilesIni profiles = new ProfilesIni();
-			FirefoxProfile mgiProfile = profiles.getProfile("mgi");
-			webDriver = new FirefoxDriver(mgiProfile);
+            capability = DesiredCapabilities.firefox();
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.setPreference("browser.download.dir", dir);
+            profile.setPreference("browser.download.folderList", 2);
+            profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/excel");
+            profile.setPreference("browser.download.panel.shown", true);
+            capability.setCapability(FirefoxDriver.PROFILE, profile);
+
 
 		} else if (INTERNET_EXPLORER.equals(browserName)) {
-			webDriver = new InternetExplorerDriver();
+			capability = DesiredCapabilities.internetExplorer();
 
-		} return webDriver;
+		}
+        //Create Remote WebDriver
+        try {
+            webDriver = new RemoteWebDriver(new URL(gridHubUrl), capability);
+        } catch (MalformedURLException e){
+            e.printStackTrace();
+        }
+        return webDriver;
 	}
 
+    public static WebDriver getInstance(Browser browser, String dir){
+
+        String browserName = browser.getName();
+        DesiredCapabilities capability = new DesiredCapabilities();
+        capability.setJavascriptEnabled(true);
+
+        if (CHROME.equals(browserName)) {
+            ChromeOptions options = new ChromeOptions();
+            Map<String, Object> prefs = new HashMap<String, Object>();
+            prefs.put("download.default_directory", dir);
+            prefs.put("download.prompt_for_dowload", false);
+            options.addArguments("start-maximized");
+            options.setExperimentalOption("prefs", prefs);
+            capability = DesiredCapabilities.chrome();
+            capability.setCapability(ChromeOptions.CAPABILITY, options);
+            webDriver = new ChromeDriver(capability);
+
+
+        } else if (FIREFOX.equals(browserName)) {
+            capability = DesiredCapabilities.firefox();
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.setPreference("browser.download.dir", dir);
+            profile.setPreference("browser.download.folderList", 2);
+            profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/excel");
+            profile.setPreference("browser.download.panel.shown", true);
+            capability.setCapability(FirefoxDriver.PROFILE, profile);
+            webDriver = new FirefoxDriver(capability);
+
+
+        } else if (INTERNET_EXPLORER.equals(browserName)) {
+            webDriver = new InternetExplorerDriver();
+
+        }
+        return webDriver;
+    }
 }

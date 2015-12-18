@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ru.fors.pages.ReportsPage;
+import ru.fors.utils.PropertyLoader;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
@@ -21,7 +22,7 @@ public class ReportsTests extends TestBase{
 
     @BeforeClass
     public void cleanWorkingDirectory(){
-        File file = new File("C:\\mgi_reports\\");
+        File file = new File(dir);
         File [] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
                 File f1 = files[i];
