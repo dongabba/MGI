@@ -166,7 +166,7 @@
 				<site.url>${url}</site.url>
 				<wait>${wait.seconds}</wait>
 				<downloadDir>${windowsDir}</downloadDir>
-				<grid2.hub></grid2.hub>
+				<grid2.hub>${hub.url}</grid2.hub>
 				<browser.name>firefox</browser.name>
 				<suites>test</suites>
 			</properties>

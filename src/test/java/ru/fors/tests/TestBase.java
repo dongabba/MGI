@@ -17,7 +17,7 @@ import ru.fors.utils.WebDriverFactory;
 
 public class TestBase {
 	
-	protected static WebDriver driver;
+	protected WebDriver driver;
 
 	public String baseUrl;
 	public String gridHubUrl;
@@ -42,7 +42,7 @@ public class TestBase {
 	
 	
 	@AfterTest
-	public static void tearDown() {
+	public void tearDown() {
 		if (driver != null) {
 			driver.quit();
 			driver = null;
@@ -58,7 +58,7 @@ public class TestBase {
 
 
 	
-	public static WebDriver getWebDriver(){
+	public WebDriver getWebDriver(){
 		return driver;
 	}
 

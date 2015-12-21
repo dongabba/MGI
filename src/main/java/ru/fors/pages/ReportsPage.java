@@ -356,11 +356,14 @@ public class ReportsPage extends MainMenu {
 
     public boolean isReportFormed(String reportName) throws InterruptedException {
         File file = new File(PropertyLoader.loadProperty("downloadDir"));
+        //System.out.println("This is isReportFormed method. Search files in directory: "+PropertyLoader.loadProperty("downloadDir"));
         int count=0;
         for (int time = 0; time<118; time++) {
             File [] files = file.listFiles();
+            //System.out.println("This is isReportFormed method: Total files in directory: " +files.length);
             for (int i = 0; i < files.length; i++) {
                 File f1 = files[i];
+                //System.out.println("This is isReportFormed method: File name: " + i+" " + f1.getName());
                 if (f1.getName().startsWith(reportName)) {
                     f1.delete();
                     count++;

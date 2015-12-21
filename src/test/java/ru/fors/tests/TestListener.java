@@ -5,11 +5,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import ru.yandex.qatools.allure.annotations.Attachment;
 
 public class TestListener implements ITestListener {
 
+	TestBase tb = new TestBase();
 	@Override
 	public void onFinish(ITestContext arg0) {
 		// TODO Auto-generated method stub
@@ -29,7 +29,7 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult arg0) {
 		takeAttach();
-		TestBase.tearDown();
+		tb.tearDown();
 		
 	}
 
@@ -51,7 +51,7 @@ public class TestListener implements ITestListener {
 	
 	@Attachment("ScreenShot")
 	public byte[] takeAttach() {
-		return ((TakesScreenshot) TestBase.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+		return ((TakesScreenshot) tb.getWebDriver()).getScreenshotAs(OutputType.BYTES);
 	}
 
 }
