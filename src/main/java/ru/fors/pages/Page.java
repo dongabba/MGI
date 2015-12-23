@@ -14,13 +14,16 @@ public class Page {
 
 	protected WebDriver driver;
 	protected WebDriverWait wait;
+	protected WebDriverWait wait1;
 
 	public Page(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, Long.parseLong(PropertyLoader.loadProperty("wait")));
+		wait1 = new WebDriverWait(driver, 5);
 	}
 	
 	public void type(By element, String string){
+		wait1.until(ExpectedConditions.elementToBeClickable(element));
 		driver.findElement(element).clear();
 		driver.findElement(element).sendKeys(string);
 	}
@@ -30,6 +33,11 @@ public class Page {
 	}
 	
 	public void click(By element){
+		wait1.until(ExpectedConditions.elementToBeClickable(element));
+		driver.findElement(element).click();
+	}
+
+	public void clickMenu(By element){
 		driver.findElement(element).click();
 	}
 	
@@ -45,11 +53,11 @@ public class Page {
 		int count = 0;
 		while (count < 5) {
 			try {
-				click(element);
-				wait.until(ExpectedConditions.elementToBeClickable(element1));
-				click(element1);
-				wait.until(ExpectedConditions.elementToBeClickable(element2));
-				click(element2);
+				clickMenu(element);
+				wait1.until(ExpectedConditions.elementToBeClickable(element1));
+				clickMenu(element1);
+				wait1.until(ExpectedConditions.elementToBeClickable(element2));
+				clickMenu(element2);
 				break;
 			} catch (Exception e) {
 				System.out.println("Count: " + count + " click exception" );
@@ -62,9 +70,9 @@ public class Page {
 		int count = 0;
 		while (count < 5) {
 			try {
-				click(element);
-				wait.until(ExpectedConditions.elementToBeClickable(element1));
-				click(element1);
+				clickMenu(element);
+				wait1.until(ExpectedConditions.elementToBeClickable(element1));
+				clickMenu(element1);
 				break;
 			} catch (Exception e) {
 				System.out.println("Count: " + count + " click exception" );
